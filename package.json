@@ -1,0 +1,36 @@
+{
+  "_comment": "This is the basic data - main is the entry point of our application, it will be executed first when we run electron app ",
+  "name": "option-electron-app",
+  "version": "1.0.0",
+  "description": "application used to trade stock and options",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "test": "testing",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/j-lord/trade-grid.git"
+  },
+  "author": "j.lord",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/j-lord/trade-grid/issues"
+  },
+  "homepage": "https://github.com/j-lord/trade-grid#readme",
+  "devDependencies": {
+    "@electron-forge/cli": "^7.3.1",
+    "@electron-forge/maker-deb": "^7.3.1",
+    "@electron-forge/maker-rpm": "^7.3.1",
+    "@electron-forge/maker-squirrel": "^7.3.1",
+    "@electron-forge/maker-zip": "^7.3.1",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.3.1",
+    "@electron-forge/plugin-fuses": "^7.3.1",
+    "electron": "^29.1.6"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
+  }
+}
