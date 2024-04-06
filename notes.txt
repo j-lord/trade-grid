@@ -1,0 +1,15 @@
+Just some random thought for things that i have either done or need to do
+
+Delete Commit History in Git Repository:
+
+git checkout --orphan latest_branch         Checkout/Create Orphan Branch – Create a new orphan branch in your git repository
+git add -A                                  Add All The Files to Branch – Add all existing files to your newly created branch
+git commit -am "your new commit message"    Commit The Changes – After adding all files to your new branch, commit the changes  
+git branch -D main                          Delete Main (Default) Branch – Now you can delete the main (default) branch from your git repository - permanent step
+git branch -m main                          Rename The Current Branch – After deleting the old main (default) branch, rename the newly created branch to main
+git push -f origin main                     Push Changes – All these changes are completed on your local repository and now its time to force push these changes to your remote repository
+
+npm run make        this makes the application in the out file - this creates a stand alone application which would need to be re-made when an update is made
+npm start           start the electron application
+
+

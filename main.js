@@ -4,28 +4,41 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('node:path')
 
+
+require('electron-reload')(__dirname, {
+  electron: path.join(__dirname, 'node_modules', '.bin', 'electron'),
+  awaitWriteFinish: true,
+});
+
+
 const createWindow = () => {
   // Create the browser window.
 const mainWindow = new BrowserWindow({
 width: 800,
 height: 600,
+frame: false, // removes the window title
 webPreferences: {
-    preload: path.join(__dirname, 'preload.js')
-}
+    preload: path.join(__dirname, 'preload.js'),
+    nodeIntegration: true, // enabled for the window controls JavaScript to work
+    
+    // enableRemoteModule: true,
+    // contextIsolation: false,
+  
+    // devTools: false, // this turns off the ability to hit option+cmd+i
+},
+// frame: true
 })
 
-    // and load the index.html of the app.
-    mainWindow.loadFile('index.html')
-
-    // Open the DevTools.
-    // mainWindow.webContents.openDevTools()
-    }
+  // and load the index.html of the app.
+  mainWindow.loadFile('index.html')
+  }
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
 createWindow()
+
 
 app.on('activate', () => {
 // On macOS it's common to re-create a window in the app when the
