@@ -14,22 +14,28 @@ body {
 
 #titlebar {
     /* background: #20202b; */
-    display: block;
+    display: flex;
     position: fixed;
-    height: 32px;
+    height: 40px;
     width: calc(100% - 2px); /*Copensate for body 1px border*/
     /* allow for the cursor to change to resize when we hover near the edge of the window at the top */
     padding-top: 4px;
     padding-right: 4px;
     padding-left: 4px;
-    /* thin outline for title bar */
+    /* testing thin outline for title bar */
     outline: #48545c solid thin;
+    padding: 0 20px;
+    margin: auto;
 }
 /* make the new title bar draggable*/
 #titlebar #drag-region {
     width: 100%;
     height: 110%;
     -webkit-app-region: drag;
+}
+#titlebar #content{
+    padding: 0 20px;
+    margin: auto;
 }
 
 #logo {
@@ -59,20 +65,20 @@ body {
 
 .window-hover:hover {
     background: rgba(255,255,255,0.1);
-  }
-  .window-hover:hover:active {
-    background: rgba(255,255,255,0.2);
-  }
+}
+.window-hover:hover:active {
+background: rgba(255,255,255,0.2);
+}
 
-  .window-hover-close:hover {
-    background: #E81123 !important;
-  }
-  .window-hover-close:active {
-    background: #F1707A !important;
-  }
-  .window-hover-close:active .icon {
-    filter: invert(1);
-  }
+.window-hover-close:hover {
+background: #E81123 !important;
+}
+.window-hover-close:active {
+background: #F1707A !important;
+}
+.window-hover-close:active .icon {
+filter: invert(1);
+}
 
 .mac-controls:hover .mac-hover{
     display: flex;

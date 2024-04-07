@@ -1,7 +1,7 @@
 // main.js
 
 // Modules to control application life and create native browser window
-const { app, BrowserWindow } = require('electron')
+const { app, screen, BrowserWindow } = require('electron')
 const path = require('node:path')
 
 
@@ -11,23 +11,35 @@ require('electron-reload')(__dirname, {
 });
 
 
+
+
 const createWindow = () => {
   // Create the browser window.
 const mainWindow = new BrowserWindow({
-width: 800,
-height: 600,
+width: 1200,
+height: 800,
+padding: 100,
+x: 50, // X position of the window
+y: 700, // Y position of the window
 frame: false, // removes the window title
+titleBarStyle: 'hidden', // Hides the default title bar on macOS
+titleBarOverlay: {
+  color: '#2f3241',
+  symbolColor: '#74b1be',
+  height: 40,
+}, // Custom position of the traffic light buttons
+
+
 webPreferences: {
     preload: path.join(__dirname, 'preload.js'),
     nodeIntegration: true, // enabled for the window controls JavaScript to work
-    
     // enableRemoteModule: true,
     // contextIsolation: false,
-  
     // devTools: false, // this turns off the ability to hit option+cmd+i
 },
-// frame: true
+trafficLightPosition: { y: 20 }
 })
+mainWindow.setWindowButtonVisibility(true) // shows the title Bar traffic light buttons
 
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
@@ -46,6 +58,13 @@ app.on('activate', () => {
 if (BrowserWindow.getAllWindows().length === 0) createWindow()
 })
 })
+
+app.on('ready', () => {
+  const primaryDisplay = screen.getPrimaryDisplay();
+  const { width, height } = primaryDisplay.workAreaSize;
+
+  console.log(`Screen size: ${width}x${height}`);
+});
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
