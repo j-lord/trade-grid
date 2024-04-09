@@ -17,13 +17,14 @@ body {
     display: flex;
     position: fixed;
     height: 40px;
-    width: calc(100% - 2px); /*Copensate for body 1px border*/
+    width: calc(100% - 2px); /*Compensate for body 1px border*/
     /* allow for the cursor to change to resize when we hover near the edge of the window at the top */
     padding-top: 4px;
     padding-right: 4px;
     padding-left: 4px;
+
     /* testing thin outline for title bar */
-    outline: #48545c solid thin;
+    outline: #d9e80d solid thin;
     padding: 0 20px;
     margin: auto;
 }

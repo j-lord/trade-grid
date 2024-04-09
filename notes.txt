@@ -13,3 +13,17 @@ npm run make        this makes the application in the out file - this creates a 
 npm start           start the electron application
 
 
+
+
+Keyboard shortcuts
+These will be one of the major advantages of using this application
+Electron has both local and global  keyboard shortcuts
+Local are only available when the app is in focus
+while global can we use when any application is in focus
+
+Key Mapping 
+Global shortcuts:
+    - LAUNCH the application
+    - Bring the electron app to the front of view
+        - Same button as launch?
+    
