@@ -78,6 +78,7 @@ const createWindow = () => {
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
   
+  // Need to figure out how to add graphs into a window inside of the work area
 }
 
 
