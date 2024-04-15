@@ -5,38 +5,46 @@
 <head>
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'"> -->
     <link rel="stylesheet" type="text/css" href="./styles.css">
+        <header id="titlebar">
+            <div id="drag-region"></div>
+        </header>
+
+        <!-- <div id="main">
+            <h1>Hello World!</h1>
+            <p>Lorem ipsum dolor sit amet...</p>
+        </div> -->
+
+        <div class=" "><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"></a></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+        {
+        "width": "400",
+        "height": "300",
+        "symbol": "NASDAQ:AAPL",
+        "interval": "D",
+        "timezone": "Etc/UTC",
+        "theme": "dark",
+        "style": "1",
+        "locale": "en",
+        "enable_publishing": false,
+        "hide_top_toolbar": true,
+        "hide_legend": true,
+        "allow_symbol_change": true,
+        "save_image": false,
+        "calendar": false,
+        "hide_volume": true,
+        "support_host": "https://www.tradingview.com"
+    }
+    </script>
+    </div>
+    
+        
+
 </head>
 
-<body>
-    <body>
-        <header id="titlebar">
-            <div id="drag-region"></div>
-        </header>
-        <div id="main">
-        <h1>Hello World!</h1>
-        <p>Lorem ipsum dolor sit amet...</p>
-    </div>
-    </body>
 
 
-<body>
-    <body>
-        <header id="titlebar">
-            <div id="drag-region"></div>
-        </header>
-        <div id="main">
-        <h1>Hello World!</h1>
-        <p>Lorem ipsum dolor sit amet...</p>
-    </div>
-    </body>
-
-    <!-- <h1>Something</h1>
-    <h2>We are using Node.js <span id="node-version"></span></h2>
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>. -->
-    <script src="./renderer.js"></script>
-</body>
 
 </html>
+

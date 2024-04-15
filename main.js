@@ -17,7 +17,7 @@ require('electron-reload')(__dirname, {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   createWindow()
-    
+  // Bring active window to the front  Mac: option + CMD + I 
   globalShortcut.register('Alt+CommandOrControl+I', () => {
       forceFocusWindow(mainWindow);
     })
@@ -75,9 +75,8 @@ const createWindow = () => {
   })
   
   mainWindow.setWindowButtonVisibility(true) // shows the title Bar traffic light buttons
-  // and load the index.html of the app.
-  mainWindow.loadFile('index.html')
-  
+  mainWindow.loadFile('index.html') // load the index.html of the app.
+
   // Need to figure out how to add graphs into a window inside of the work area
   // do this first thing sunday morning
 }
