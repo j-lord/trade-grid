@@ -12,6 +12,38 @@ body {
     overflow-y: hidden;
 }
 
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Creates 4 columns */
+    grid-template-rows: repeat(4, 1fr); /* Creates 4 rows */
+    gap: 20px; /* Space between grid items */
+    height: 100vh; /* Full viewport height */
+    width: calc(100% - 300px); /*Compensate for body 1px border*/
+    padding: 20px; /* Padding around the grid */
+    padding-top: 100px;
+    padding-left: 40px;
+    /* display: flex; */
+        /* testing thin outline for title bar */
+        outline: #d9e80d solid thin;
+}
+
+.grid-item {
+    background-color: #14141e; /* background color of the grid square */
+    border-radius: 15px; /* rounded boarder */
+    /* border: 1px solid #ccc; */
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* testing thin outline for title bar */
+    outline: #e84f0d solid thin;
+}
+
+/* not sure what this does */
+/* canvas { */
+    /* width: 100% !important; Full width of the grid cell */
+    /* height: 100% !important; Full height of the grid cell */
+/* } */
+
 #titlebar {
     /* background: #20202b; */
     display: flex;

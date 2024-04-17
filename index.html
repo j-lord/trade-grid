@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'"> -->
-    <link rel="stylesheet" type="text/css" href="./styles.css">
+        <link rel="stylesheet" type="text/css" href="./styles.css">
         <header id="titlebar">
             <div id="drag-region"></div>
         </header>
@@ -15,36 +15,29 @@
             <h1>Hello World!</h1>
             <p>Lorem ipsum dolor sit amet...</p>
         </div> -->
-
-        <div class=" "><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"></a></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-        {
-        "width": "400",
-        "height": "300",
-        "symbol": "NASDAQ:AAPL",
-        "interval": "D",
-        "timezone": "Etc/UTC",
-        "theme": "dark",
-        "style": "1",
-        "locale": "en",
-        "enable_publishing": false,
-        "hide_top_toolbar": true,
-        "hide_legend": true,
-        "allow_symbol_change": true,
-        "save_image": false,
-        "calendar": false,
-        "hide_volume": true,
-        "support_host": "https://www.tradingview.com"
-    }
-    </script>
-    </div>
-    
+        <body>
+            
+            <div class="grid-container">
+                <!-- Repeat this block for 16 times (4x4) -->
+                <div class="grid-item">
+                    <canvas id="graph1"></canvas>
+                </div>
+                <div class="grid-item">
+                    <canvas id="graph1"></canvas>
+                </div>
+                <div class="grid-item">
+                    <canvas id="graph1"></canvas>
+                </div>
+                <div class="grid-item">
+                    <canvas id="graph1"></canvas>
+                </div>
+                
+                <!-- More grid items with different canvas ids... -->
+            </div>
         
+        
+    </body>
 
 </head>
-
-
-
-
 </html>
 
