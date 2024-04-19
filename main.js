@@ -52,10 +52,12 @@ const createWindow = () => {
   const { width, height } = primaryDisplay.workAreaSize;
   
   const mainWindow = new BrowserWindow({
-    width: width - width/3,
-    height: height/2,
+    width: width * 0.4,
+    minWidth: width * 0.3,
+    height: height * 0.6,
+    minHeight: height * 0.5,
     x: 50, // X position of the window
-    y: 700, // Y position of the window
+    y: 100, // Y position of the window
     frame: false, // removes the window title
     titleBarStyle: 'hidden', // Hides the default title bar on macOS
     trafficLightPosition: { x: 18, y: 14 },
