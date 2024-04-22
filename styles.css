@@ -12,6 +12,7 @@ body {
     overflow-y: hidden;
 }
 
+/* still need to do some work on the repeat as we want the smallest to be a square */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);  /* Creates 4 columns */
