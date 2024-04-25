@@ -1,5 +1,5 @@
 const { globalShortcut } = require('electron');
-console.log("loaded shortcuts")
+
 const shortcuts = [
     { accelerator: 'CommandOrControl+X', action: 'cut' },
     { accelerator: 'CommandOrControl+C', action: 'copy' },
@@ -22,3 +22,5 @@ function unregisterShortcuts() {
 }
 
 module.exports = { registerShortcuts, unregisterShortcuts };
+
+// need to put all of the keyboard shutcuts into one forl
