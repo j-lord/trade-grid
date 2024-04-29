@@ -52,8 +52,8 @@ const createWindow = () => {
   const { width, height } = primaryDisplay.workAreaSize;
   
   const mainWindow = new BrowserWindow({
-    width: width * 0.4,
-    minWidth: width * 0.3,
+    width: width * 0.5,
+    minWidth: width * 0.5,
     height: height * 0.6,
     minHeight: height * 0.5,
     x: 50, // X position of the window
@@ -75,6 +75,8 @@ const createWindow = () => {
       // devTools: false, // this turns off the ability to hit option+cmd+i
     },
   })
+
+
   
   mainWindow.setWindowButtonVisibility(true) // shows the title Bar traffic light buttons
   mainWindow.loadFile('index.html') // load the index.html of the app.
