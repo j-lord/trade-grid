@@ -6,7 +6,7 @@ const shortcuts = [
     { accelerator: 'CommandOrControl+V', action: 'paste' },
     // Add more shortcuts as needed
 ];
-
+// add all of the keybinded shortcuts here
 function registerShortcuts(win) {
     shortcuts.forEach((shortcut) => {
         globalShortcut.register(shortcut.accelerator, () => {
