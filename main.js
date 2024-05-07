@@ -55,7 +55,7 @@ const createWindow = () => {
     width: width * 0.5,
     minWidth: width * 0.5,
     height: height * 0.6,
-    minHeight: height * 0.5,
+    minHeight: height * 0.75,
     x: 50, // X position of the window
     y: 100, // Y position of the window
     frame: false, // removes the window title
