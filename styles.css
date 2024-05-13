@@ -13,6 +13,8 @@ body {
 }
 
 /* still need to do some work on the repeat as we want the smallest to be a square */
+/* changes both this area as well as the mainWindow width and height */
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);  /* Creates 4 columns */

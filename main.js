@@ -56,8 +56,8 @@ const createWindow = () => {
     minWidth: width * 0.5,
     height: height * 0.6,
     minHeight: height * 0.75,
-    x: 50, // X position of the window
-    y: 100, // Y position of the window
+    x: 50, // X starting position of the window
+    y: 100, // Y starting position of the window
     frame: false, // removes the window title
     titleBarStyle: 'hidden', // Hides the default title bar on macOS
     trafficLightPosition: { x: 18, y: 14 },
