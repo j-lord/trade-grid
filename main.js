@@ -54,8 +54,8 @@ const createWindow = () => {
   const mainWindow = new BrowserWindow({
     width: width * 0.5,
     minWidth: width * 0.5,
-    height: height * 0.6,
-    minHeight: height * 0.75,
+    height: height * 0.75,
+    minHeight: height * 0.6,
     x: 50, // X starting position of the window
     y: 100, // Y starting position of the window
     frame: false, // removes the window title
