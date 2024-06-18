@@ -18,7 +18,7 @@ require('electron-reload')(__dirname, {
 app.whenReady().then(() => {
   createWindow()
   // Bring active window to the front  Mac: option + CMD + I 
-  globalShortcut.register('Alt+CommandOrControl+I', () => {
+  globalShortcut.register('CommandOrControl+I', () => {
       forceFocusWindow(mainWindow);
     })
 
