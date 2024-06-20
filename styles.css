@@ -8,7 +8,7 @@ html, body {height: 100%; margin: 0;}
 body {
     background: #20202b;
     color: #FFF;
-    border: 1px solid #48545c;
+    border: 3px solid #48545c;
     overflow-y: hidden;
 }
 
@@ -27,8 +27,9 @@ body {
     padding-top: 100px;
     padding-left: 40px;
     /* display: flex; */
-        /* testing thin outline for title bar */
-        outline: #d9e80d solid thin;
+    /* yellow */
+    /* testing thin outline for title bar */
+    outline: #d9e80d solid thin;
 }
 
 .grid-item {
@@ -61,7 +62,8 @@ body {
     padding-left: 4px;
 
     /* testing thin outline for title bar */
-    outline: #d9e80d solid thin;
+    /* red */
+    outline: #e8400d solid thin;
     padding: 0 20px;
     margin: auto;
 }
