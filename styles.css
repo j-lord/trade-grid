@@ -8,18 +8,41 @@ html, body {height: 100%; margin: 0;}
 body {
     background: #20202b;
     color: #FFF;
-    border: 3px solid #48545c;
+    border: 3px solid #34d034;
     overflow-y: hidden;
 }
 
 /* still need to do some work on the repeat as we want the smallest to be a square */
 /* changes both this area as well as the mainWindow width and height */
 
+.testing-containter {
+    margin-left: auto; 
+    margin-right: 0;
+    /* z-index: 2; */
+    display: table-cell;
+    display: flex;
+    width: 50vw;
+    /* width: calc(100%); */
+
+    /* blue */
+    /* testing thin outline for title bar */
+    outline: #28cbe8 solid thin;
+}
+
+.outer-container {
+    flex-direction: row;            /* default value; can be omitted */
+    flex-wrap: wrap;
+    width: 100%
+    /* blue */
+    /* testing thin outline for title bar */
+    outline: #25e4ce solid thick;            /* default value; can be omitted */
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);  /* Creates 4 columns */
     grid-template-rows: repeat(4, 1fr);  /* Creates 4 rows */
-    
+        
     gap: 20px; /* Space between grid items */
     height: 100vh; /* Full viewport height */
     width: calc(100% - 300px);
