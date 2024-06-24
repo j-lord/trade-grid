@@ -8,42 +8,64 @@ html, body {height: 100%; margin: 0;}
 body {
     background: #20202b;
     color: #FFF;
-    border: 3px solid #34d034;
+    /* border: 3px solid #34d034; */
     overflow-y: hidden;
 }
-
+/* .header {
+    grid-column: 1/3;
+    grid-row: 1/2;
+} */
 /* still need to do some work on the repeat as we want the smallest to be a square */
 /* changes both this area as well as the mainWindow width and height */
 
-.testing-containter {
-    margin-left: auto; 
-    margin-right: 0;
-    /* z-index: 2; */
-    display: table-cell;
-    display: flex;
-    width: 50vw;
-    /* width: calc(100%); */
-
-    /* blue */
-    /* testing thin outline for title bar */
-    outline: #28cbe8 solid thin;
+.container {  display: grid;
+    grid-template-columns: 0.2fr 1.5fr 1.5fr 1.6fr 1.5fr 1.1fr 0.15fr;
+    grid-template-rows: 0.2fr 0.3fr 1.5fr 1.5fr 1.6fr 1.4fr 0.3fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    justify-content: stretch;
+    width: 100%;
+    height: 100%;
 }
+/* created this grid layout on https://grid.layoutit.com */
+/* .Header { grid-area: 1 / 1 / 2 / 8; background-color: #92f17045;} */
+/* .Header { grid-area: 1 / 1 / 2 / 8; background-color: #707df145;} */
+.Header { grid-area: 1 / 1 / 2 / 8;}
+.Banner { grid-area: 2 / 3 / 3 / 7; background-color: #707df145;}
+.RightBox1 { grid-area: 3 / 6 / 5 / 7; background-color: #462e6345;}
+.RightBox2 { grid-area: 5 / 6 / 7 / 7; background-color: #462e6345;}
+/* .SpacerLeft { grid-area: 2 / 1 / 7 / 2; background-color: #f1707b45;} */
+.SpacerLeft { grid-area: 2 / 1 / 7 / 2; }
+/* .SpacerRight { grid-area: 2 / 7 / 7 / 8; background-color: #f1707b45; } */
+.SpacerRight { grid-area: 2 / 7 / 7 / 8; }
+.GridArea { grid-area: 3 / 2 / 7 / 6; outline: #d9e80d solid thin;}
+.Grid1 { grid-area: 3 / 2 / 4 / 3; background-color: #3a6f5845;}
+.Grid2 { grid-area: 3 / 3 / 4 / 4; background-color: #3a6f5845;}
+.Grid3 { grid-area: 3 / 4 / 4 / 5; background-color: #3a6f5845;}
+.Grid4 { grid-area: 3 / 5 / 4 / 6; background-color: #3a6f5845;}
+.Grid5 { grid-area: 4 / 2 / 5 / 3; background-color: #3a6f5845;}
+.Grid6 { grid-area: 4 / 3 / 5 / 4; background-color: #3a6f5845;}
+.Grid7 { grid-area: 4 / 4 / 5 / 5; background-color: #3a6f5845;}
+.Grid8 { grid-area: 4 / 5 / 5 / 6; background-color: #3a6f5845;}
+.Grid9 { grid-area: 5 / 2 / 6 / 3; background-color: #3a6f5845;}
+.Grid10 { grid-area: 5 / 3 / 6 / 4; background-color: #3a6f5845;}
+.Grid11 { grid-area: 5 / 4 / 6 / 5; background-color: #3a6f5845;}
+.Grid12 { grid-area: 5 / 5 / 6 / 6; background-color: #3a6f5845;}
+.Grid13 { grid-area: 6 / 2 / 7 / 3; background-color: #3a6f5845;}
+.Grid14 { grid-area: 6 / 3 / 7 / 4; background-color: #3a6f5845;}
+.Grid15 { grid-area: 6 / 4 / 7 / 5; background-color: #3a6f5845;}
+.Grid16 { grid-area: 6 / 5 / 7 / 6; background-color: #3a6f5845;}
+.Footer { grid-area: 7 / 1 / 8 / 8; background-color: #707df145;}
 
-.outer-container {
-    flex-direction: row;            /* default value; can be omitted */
-    flex-wrap: wrap;
-    width: 100%
-    /* blue */
-    /* testing thin outline for title bar */
-    outline: #25e4ce solid thick;            /* default value; can be omitted */
-}
+
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);  /* Creates 4 columns */
-    grid-template-rows: repeat(4, 1fr);  /* Creates 4 rows */
-        
+    
+    grid-template-columns: repeat(4, 4fr);  /* Creates 4 columns */
+    grid-template-rows: repeat(4, 4fr);  /* Creates 4 rows */
     gap: 20px; /* Space between grid items */
+        
     height: 100vh; /* Full viewport height */
     width: calc(100% - 300px);
     padding: 20px; /* Padding around the grid */
@@ -62,40 +84,30 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* testing thin outline for title bar */
-    /* outline: #e84f0d solid thin; */
+    
     
 }
 
-/* not sure what this does */
-/* canvas { */
-    /* width: 100% !important; Full width of the grid cell */
-    /* height: 100% !important; Full height of the grid cell */
-/* } */
 
 #titlebar {
-    /* background: #20202b; */
-    display: flex;
+    /* display: flex; */
     position: fixed;
-    height: 40px;
-    width: calc(100% - 2px); /*Compensate for body 1px border*/
-    /* allow for the cursor to change to resize when we hover near the edge of the window at the top */
-    padding-top: 4px;
-    padding-right: 4px;
-    padding-left: 4px;
-
-    /* testing thin outline for title bar */
-    /* red */
-    outline: #e8400d solid thin;
-    padding: 0 20px;
+    height: 45px;
+    width: 100%;
+    outline: #dde80d solid thin;
     margin: auto;
 }
+
 /* make the new title bar draggable*/
 #titlebar #drag-region {
-    width: 100%;
-    height: 110%;
+    /* allow for the cursor to change to resize when we hover near the edge of the window at the top */
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    margin: 2px;
     -webkit-app-region: drag;
+    outline: #e8400d solid thin;
 }
+
 #titlebar #content{
     padding: 0 20px;
     margin: auto;
@@ -184,12 +196,12 @@ h1 { font-family: Futura, "Trebuchet MS", Arial, sans-serif;
     line-height: 23px; 
 } 
 
-h3 { font-family: Futura, "Trebuchet MS", Arial, sans-serif; 
-    font-size: 17px; 
+h3, body { font-family: Futura, "Trebuchet MS", Arial, sans-serif; 
+    font-size: 14px; 
     font-style: normal; 
     font-variant: normal; 
-    font-weight: 700; 
-    line-height: 23px; 
+    font-weight: 400; 
+    line-height: 13px; 
 } 
 
 p { font-family: Futura, "Trebuchet MS", Arial, sans-serif; 
