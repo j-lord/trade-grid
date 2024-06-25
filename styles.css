@@ -4,7 +4,6 @@ html {box-sizing: border-box;}
 *, *:before, *:after {box-sizing: inherit;}
 html, body {height: 100%; margin: 0;}
 
-
 body {
     background: #20202b;
     color: #FFF;
@@ -31,7 +30,7 @@ body {
 /* .Header { grid-area: 1 / 1 / 2 / 8; background-color: #92f17045;} */
 /* .Header { grid-area: 1 / 1 / 2 / 8; background-color: #707df145;} */
 .Header { grid-area: 1 / 1 / 2 / 8;}
-.Banner { grid-area: 2 / 3 / 3 / 7; background-color: #707df145;}
+.Banner { grid-area: 2 / 3 / 3 / 6; background-color: #707df145;}
 .RightBox1 { grid-area: 3 / 6 / 5 / 7; background-color: #462e6345;}
 .RightBox2 { grid-area: 5 / 6 / 7 / 7; background-color: #462e6345;}
 /* .SpacerLeft { grid-area: 2 / 1 / 7 / 2; background-color: #f1707b45;} */
@@ -39,15 +38,20 @@ body {
 /* .SpacerRight { grid-area: 2 / 7 / 7 / 8; background-color: #f1707b45; } */
 .SpacerRight { grid-area: 2 / 7 / 7 / 8; }
 .GridArea { grid-area: 3 / 2 / 7 / 6; outline: #d9e80d solid thin;}
-.Grid1 { grid-area: 3 / 2 / 4 / 3; background-color: #3a6f5845;}
-.Grid2 { grid-area: 3 / 3 / 4 / 4; background-color: #3a6f5845;}
-.Grid3 { grid-area: 3 / 4 / 4 / 5; background-color: #3a6f5845;}
-.Grid4 { grid-area: 3 / 5 / 4 / 6; background-color: #3a6f5845;}
-.Grid5 { grid-area: 4 / 2 / 5 / 3; background-color: #3a6f5845;}
-.Grid6 { grid-area: 4 / 3 / 5 / 4; background-color: #3a6f5845;}
-.Grid7 { grid-area: 4 / 4 / 5 / 5; background-color: #3a6f5845;}
-.Grid8 { grid-area: 4 / 5 / 5 / 6; background-color: #3a6f5845;}
-.Grid9 { grid-area: 5 / 2 / 6 / 3; background-color: #3a6f5845;}
+
+.Grid1 { grid-area: 3 / 2 / 4 / 3; background-color: #3a6f5845; transition: 600ms;}
+.container:has(.Grid1:hover) {
+    /* grid-template-columns: 100% auto; */
+    grid-area: 3 / 2 / 5 / 4;
+}
+.Grid2  { grid-area: 3 / 3 / 4 / 4; background-color: #3a6f5845;}
+.Grid3  { grid-area: 3 / 4 / 4 / 5; background-color: #3a6f5845;}
+.Grid4  { grid-area: 3 / 5 / 4 / 6; background-color: #3a6f5845;}
+.Grid5  { grid-area: 4 / 2 / 5 / 3; background-color: #3a6f5845;}
+.Grid6  { grid-area: 4 / 3 / 5 / 4; background-color: #3a6f5845;}
+.Grid7  { grid-area: 4 / 4 / 5 / 5; background-color: #3a6f5845;}
+.Grid8  { grid-area: 4 / 5 / 5 / 6; background-color: #3a6f5845;}
+.Grid9  { grid-area: 5 / 2 / 6 / 3; background-color: #3a6f5845;}
 .Grid10 { grid-area: 5 / 3 / 6 / 4; background-color: #3a6f5845;}
 .Grid11 { grid-area: 5 / 4 / 6 / 5; background-color: #3a6f5845;}
 .Grid12 { grid-area: 5 / 5 / 6 / 6; background-color: #3a6f5845;}
@@ -55,6 +59,12 @@ body {
 .Grid14 { grid-area: 6 / 3 / 7 / 4; background-color: #3a6f5845;}
 .Grid15 { grid-area: 6 / 4 / 7 / 5; background-color: #3a6f5845;}
 .Grid16 { grid-area: 6 / 5 / 7 / 6; background-color: #3a6f5845;}
+/* this values below are what the animations will grow to  */
+.Grid17 { grid-area: 3 / 2 / 5 / 4; background-color: #3a6f5845;}
+.Grid18 { grid-area: 3 / 4 / 5 / 6; background-color: #3a6f5845;}
+.Grid19 { grid-area: 5 / 2 / 7 / 4; background-color: #3a6f5845;}
+.Grid20 { grid-area: 5 / 4 / 7 / 6; background-color: #3a6f5845;}
+.Grid21 { grid-area: 3 / 2 / 7 / 6; background-color: #3a6f5845;}
 .Footer { grid-area: 7 / 1 / 8 / 8; background-color: #707df145;}
 
 
@@ -185,7 +195,18 @@ grid-column: 2;
 grid-column: 3;
 }
 
-/* h1 {margin: 0 0 10px 0; font-weight: 600; line-height: 1.2;} */
+/* the below removes all of the default button formatting  */
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+
 p {margin: 10px; color: rgba(255,255,255,0.4);}
 h1 { font-family: Futura, "Trebuchet MS", Arial, sans-serif; 
     padding: 20px;
