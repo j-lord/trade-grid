@@ -17,12 +17,12 @@ require('electron-reload')(__dirname, {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   createWindow()
-  // Bring active window to the front  Mac: option + CMD + I 
+  // Bring active window to the front  Mac: CMD + I 
+  // this bring the app in focus
   globalShortcut.register('CommandOrControl+I', () => {
       forceFocusWindow(mainWindow);
     })
-
-    
+  
     app.on('activate', () => {
       // On macOS it's common to re-create a window in the app when the
       // dock icon is clicked and there are no other windows open - like in the mail app
@@ -37,7 +37,10 @@ menu.append(new MenuItem({
   submenu: [{
     role: 'help',
     accelerator: process.platform === 'darwin' ? 'Alt+Cmd+L' : 'Alt+Shift+L',
-    click: () => { console.log('Electron rocks!') }
+    click: () => { console.log('Electron rocks!') 
+    // document.querySelector('.grid-container').classList.toggle('animate');
+  }
+  
     
   }]
 }))
