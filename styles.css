@@ -85,6 +85,7 @@ body {
     /* yellow */
     /* testing thin outline for title bar */
     outline: #d9e80d solid thin;
+    transition: background-color 1s; /* Add transition for color change */
 
 }
 
