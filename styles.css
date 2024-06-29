@@ -67,7 +67,8 @@ body {
 .Grid20 { grid-area: 5 / 4 / 7 / 6; background-color: #3a6f5845;}
 .Grid21 { grid-area: 3 / 2 / 7 / 6; background-color: #3a6f5845;}
 
-/* next! need to animate the backgound of the grid-area changing on hover
+/* next! need to animate the backgound of the grid-area changing on 
+keyboard click
  */
 
 .grid-container {
