@@ -38,12 +38,16 @@ menu.append(new MenuItem({
     role: 'help',
     accelerator: process.platform === 'darwin' ? 'Alt+Cmd+L' : 'Alt+Shift+L',
     click: () => { console.log('Electron rocks!') 
-    // document.querySelector('.grid-container').classList.toggle('animate');
-  }
-  
-    
+    }
   }]
 }))
+
+// document.addEventListener('keydown', function(event) {
+//   if (event.key === 'a') { // Change 'a' to any key you want to use
+//       document.querySelector('.container').classList.toggle('animate');
+//   }
+// });
+
 
 Menu.setApplicationMenu(menu)
 
