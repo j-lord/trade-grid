@@ -36,11 +36,61 @@ menu.append(new MenuItem({
   label: 'Shortcuts',
   submenu: [{
     role: 'help',
-    accelerator: process.platform === 'darwin' ? 'Alt+Cmd+L' : 'Alt+Shift+L',
-    click: () => { console.log('Electron rocks!') 
+    // accelerator: process.platform === 'darwin' ? 'Alt+Cmd+L' : 'Alt+Shift+L',
+    // click: () => { console.log('Electron rocks!'),
+    accelerator: process.platform === 'darwin' ? 'L' : 'l',
+    click: () => { console.log('L was pressed!')
+
+    // document.querySelector('.container').classList.toggle('animate');
+    // document.querySelector('.grid-container').style.backgroundColor = 'lightseagreen';
+
+    // document.addEventListener('keydown', function(event) {
+    //   if (event.key === 'c') {
+    //     // Change color of the grid area components
+    //     document.querySelector('.grid-container').style.backgroundColor = 'lightseagreen';
+    //   }
+    // });
+
+
     }
   }]
-}))
+})) 
+
+// need to somehow make the below work 
+// document.addEventListener('keydown', function(event) {
+//   if (event.key === 'c') {
+//     // Change color of the grid area components
+//     document.querySelector('.header').style.backgroundColor = 'lightgoldenrodyellow';
+//     document.querySelector('.sidebar').style.backgroundColor = 'lightpink';
+//     document.querySelector('.main').style.backgroundColor = 'lightseagreen';
+//   }
+// });
+
+
+menu.append(new MenuItem({
+  label: 'Shortcuts',
+  submenu: [{
+    role: 'help',
+    accelerator: process.platform === 'darwin' ? 'Alt+Cmd+L' : 'Alt+Shift+L',
+    click: () => { console.log('Electron rocks!')
+    
+    // document.querySelector('.container').classList.toggle('animate');
+    // document.querySelector('.grid-container').style.backgroundColor = 'lightseagreen';
+
+    // document.addEventListener('keydown', function(event) {
+    //   if (event.key === 'c') {
+    //     // Change color of the grid area components
+    //     document.querySelector('.grid-container').style.backgroundColor = 'lightseagreen';
+    //   }
+    // });
+
+
+    }
+  }]
+})) 
+
+
+
 
 // document.addEventListener('keydown', function(event) {
 //   if (event.key === 'a') { // Change 'a' to any key you want to use
