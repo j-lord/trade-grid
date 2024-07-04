@@ -1,5 +1,4 @@
 // main.js
-
 // Modules to control application life and create native browser window
 const { app, screen, BrowserWindow, globalShortcut, Menu, MenuItem } = require('electron');
 const { registerShortcuts, unregisterShortcuts } = require('./shortcuts');
@@ -16,7 +15,9 @@ require('electron-reload')(__dirname, {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
-  createWindow()
+  createWindow()      // cerate application window
+  registerShortcuts() // register shortcuts from the shortcuts.js file
+  
   // Bring active window to the front  Mac: CMD + I 
   // this bring the app in focus
   globalShortcut.register('CommandOrControl+I', () => {
@@ -32,46 +33,25 @@ app.whenReady().then(() => {
 })
 
 const menu = new Menu()
-menu.append(new MenuItem({
-  label: 'Shortcuts',
-  submenu: [{
-    role: 'help',
-    // accelerator: process.platform === 'darwin' ? 'Alt+Cmd+L' : 'Alt+Shift+L',
-    // click: () => { console.log('Electron rocks!'),
-    accelerator: process.platform === 'darwin' ? 'L' : 'l',
-    click: () => { console.log('L was pressed!')
+// menu.append(new MenuItem({
+//   label: 'Shortcuts',
+//   submenu: [{
+//     role: 'help',
+//     // accelerator: process.platform === 'darwin' ? 'Alt+Cmd+L' : 'Alt+Shift+L',
+//     // click: () => { console.log('Electron rocks!'),
+//     accelerator: process.platform === 'darwin' ? 'L' : 'l',
+//     click: () => { console.log('L was pressed!')
+//     }
+//   }]
+// })) 
 
-    // document.querySelector('.container').classList.toggle('animate');
-    // document.querySelector('.grid-container').style.backgroundColor = 'lightseagreen';
-
-    // document.addEventListener('keydown', function(event) {
-    //   if (event.key === 'c') {
-    //     // Change color of the grid area components
-    //     document.querySelector('.grid-container').style.backgroundColor = 'lightseagreen';
-    //   }
-    // });
-
-
-    }
-  }]
-})) 
-
-// need to somehow make the below work 
-// document.addEventListener('keydown', function(event) {
-//   if (event.key === 'c') {
-//     // Change color of the grid area components
-//     document.querySelector('.header').style.backgroundColor = 'lightgoldenrodyellow';
-//     document.querySelector('.sidebar').style.backgroundColor = 'lightpink';
-//     document.querySelector('.main').style.backgroundColor = 'lightseagreen';
-//   }
-// });
 
 
 menu.append(new MenuItem({
   label: 'Shortcuts',
   submenu: [{
     role: 'help',
-    accelerator: process.platform === 'darwin' ? 'Alt+Cmd+L' : 'Alt+Shift+L',
+    accelerator: process.platform === 'darwin' ? 'Alt+Cmd+L' : 'Alt+Shift+L', // Alt is option on mac
     click: () => { console.log('Electron rocks!')
     
     // document.querySelector('.container').classList.toggle('animate');
@@ -83,7 +63,6 @@ menu.append(new MenuItem({
     //     document.querySelector('.grid-container').style.backgroundColor = 'lightseagreen';
     //   }
     // });
-
 
     }
   }]
