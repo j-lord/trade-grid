@@ -10,6 +10,11 @@ if(getOS() === "macos"){
     console.log("mac here")
 }
 
+// added this to handle the DOM manipulation in the renderer process
+const { ipcRenderer } = require('electron');
+ipcRenderer.on('change-color', (event, color) => {
+    document.getElementById('color-box').style.backgroundColor = color;
+});
 
 function getOS() {
     let userAgent = window.navigator.userAgent.toLowerCase(),

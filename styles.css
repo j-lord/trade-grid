@@ -18,6 +18,8 @@ body {
 /* changes both this area as well as the mainWindow width and height */
 
 .container {  display: grid;
+    /* this is what needs to be changes to span the banner across  2 sections*/
+    /* not the most important at the moment though - will come back */
     grid-template-columns: 0.2fr 1.5fr 1.5fr 1.6fr 1.5fr 1.1fr 0.15fr;
     grid-template-rows: 0.2fr 0.3fr 1.5fr 1.5fr 1.6fr 1.4fr 0.3fr;
     gap: 10px 10px;
@@ -48,7 +50,7 @@ body {
 .SpacerRight { grid-area: 2 / 7 / 7 / 8; }
 .GridArea { grid-area: 3 / 2 / 7 / 6; outline: #d9e80d solid thin;}
 
-.Grid1 { grid-area: 3 / 2 / 4 / 3; background-color: #3a6f5845; transition: 600ms;
+.Grid1 { grid-area: 3 / 2 / 4 / 3; background-color: #23cd8345; transition: 600ms;
     /* grid-area: Grid1; */
 }
 
