@@ -1,8 +1,13 @@
 // main.js
 // Modules to control application life and create native browser window
 const { app, screen, BrowserWindow, globalShortcut, Menu, MenuItem } = require('electron');
-const { registerShortcuts, unregisterShortcuts } = require('./shortcuts');
 const path = require('node:path')
+// 
+
+// testing
+
+
+const { registerShortcuts, unregisterShortcuts } = require('./shortcuts');
 
 let mainWindow;
 
@@ -23,6 +28,21 @@ app.whenReady().then(() => {
   globalShortcut.register('CommandOrControl+I', () => {
       forceFocusWindow(mainWindow);
     })
+
+
+    // TESTING //////////////////
+
+  // Register local shortcuts
+  localShortcut.register(mainWindow, 'Ctrl+Shift+Up', () => {
+    mainWindow.webContents.send('increase-height');
+  });
+
+  localShortcut.register(mainWindow, 'Ctrl+Shift+Down', () => {
+    mainWindow.webContents.send('decrease-height');
+  });
+
+
+    // TESTING //////////////////
   
     app.on('activate', () => {
       // On macOS it's common to re-create a window in the app when the
@@ -105,6 +125,7 @@ const createWindow = () => {
     
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
+      nativeWindowOpen: true, // allows you to access the DOM of another active window
       nodeIntegration: true, // enabled for the window controls JavaScript to work
       // enableRemoteModule: true,
       // contextIsolation: false,
@@ -136,8 +157,8 @@ function forceFocusWindow(window) {
 }
 
 app.on('will-quit', () => {
+  // console.log("Application quit")
   // Unregister all shortcuts
-  console.log("Application quit")
   unregisterShortcuts();
 });
 

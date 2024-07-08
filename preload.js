@@ -13,3 +13,15 @@ for (const dependency of ['chrome', 'node', 'electron']) {
     replaceText(`${dependency}-version`, process.versions[dependency])
 }
 })
+
+
+// TESTING ///////////
+// preload.js
+const { contextBridge, ipcRenderer } = require('electron');
+
+contextBridge.exposeInMainWorld('electron', {
+onIncreaseHeight: (callback) => ipcRenderer.on('increase-height', callback),
+onDecreaseHeight: (callback) => ipcRenderer.on('decrease-height', callback),
+});
+
+// TESTING ///////////

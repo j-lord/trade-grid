@@ -6,16 +6,31 @@ function registerShortcuts() {
   // Register a 'CommandOrControl+X' shortcut listener.
 localShortcut.register('CommandOrControl+X', () => {
 console.log('CommandOrControl+X is pressed');   });
+localShortcut.register('CommandOrControl+Q', () => {
+console.log('Quit');   });
+localShortcut.register('CommandOrControl+H', () => {
+console.log('Hide');   });
+
 localShortcut.register('CommandOrControl+L', () => {
-document.querySelector('.Banner').style.backgroundColor = 'red';
-// console.log('CommandOrControl+L is pressed');   
+console.log('CommandOrControl+L is pressed - red?');
+// document.querySelector('.Banner').style.backgroundColor = 'red';
 });
+
+localShortcut.register('CommandOrControl+G', () => {
+console.log('CommandOrControl+G is pressed - greene?');
+// mainWindow.webContents.send('change-color', 'green');
+});
+
+
+// console.log('CommandOrControl+L is pressed');   
 // not needed for now
 //if (!ret) { console.log('registration failed');
 //   }
 // Check whether a shortcut is registered.
 //console.log(globalShortcut.isRegistered('CommandOrControl+X'));
 }
+
+
 
 function unregisterShortcuts() {
   // Unregister all shortcuts.

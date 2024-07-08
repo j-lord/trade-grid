@@ -1,3 +1,4 @@
+const { ipcRenderer } = require('electron');
 
 // console.log("renderer runs as soon as page loads")
 // => { desktop: true }
@@ -11,9 +12,17 @@ if(getOS() === "macos"){
 }
 
 // added this to handle the DOM manipulation in the renderer process
-const { ipcRenderer } = require('electron');
-ipcRenderer.on('change-color', (event, color) => {
-    document.getElementById('color-box').style.backgroundColor = color;
+// const { ipcRenderer } = require('electron');
+// ipcRenderer.on('change-color', (event, color) => {
+//     document.getElementById('color-box').style.backgroundColor = color;
+// });
+
+document.addEventListener('keydown', (event) => {
+    if (event.ctrlKey && event.key === 'b') {
+        console.log("working? ctrl+b")
+    const title = document.getElementById('color-box');
+    title.style.color = title.style.color === 'blue' ? 'black' : 'blue';
+}
 });
 
 function getOS() {

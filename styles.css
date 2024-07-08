@@ -17,108 +17,57 @@ body {
 /* still need to do some work on the repeat as we want the smallest to be a square */
 /* changes both this area as well as the mainWindow width and height */
 
+/* ///////////////////////// Testing /////////////////////// */
+
 .container {  display: grid;
-    /* this is what needs to be changes to span the banner across  2 sections*/
-    /* not the most important at the moment though - will come back */
-    grid-template-columns: 0.2fr 1.5fr 1.5fr 1.6fr 1.5fr 1.1fr 0.15fr;
-    grid-template-rows: 0.2fr 0.3fr 1.5fr 1.5fr 1.6fr 1.4fr 0.3fr;
+    /*                        1     2      3        4       5       6       7       8      */
+    grid-template-columns:  0.1fr   1fr     0.8fr   2fr     1.8fr   1.9fr   1.5fr   0.1fr;
+    grid-template-rows:             0.3fr   0.4fr   1.8fr   1.8fr   1.8fr   1.8fr   0.3fr;
+    grid-auto-columns: 1fr;
     gap: 10px 10px;
-    grid-auto-flow: row;
+    grid-auto-flow: column;
     justify-content: stretch;
+    grid-template-areas:
+    "Header       Header      Header  Header  Header  Header  Header      Header"
+    "SpaceLeft    GridView    Banner  Banner  Banner  Banner  Positions   SpacerRight"
+    "SpaceLeft    Grid1       Grid1   Grid2   Grid3   Grid4   RightBox1   SpacerRight"
+    "SpaceLeft    Grid5       Grid5   Grid6   Grid7   Grid8   RightBox1   SpacerRight"
+    "SpaceLeft    Grid9       Grid9   Grid10  Grid11  Grid12  RightBox2   SpacerRight"
+    "SpaceLeft    Grid13      Grid13  Grid14  Grid15  Grid16  RightBox2   SpacerRight"
+    "Footer       Footer      Footer  Footer  Footer  Footer  Footer      Footer";
     width: 100%;
     height: 100%;
-
-    /* added */
-    transition: background-color 1s; /* Add transition for color change */
 }
 
-.container.animate {
-    grid-template-areas: 
-        "Grid1 Grid2"
-        "Grid1 Grid3";
-}
+.Header { grid-area: Header; background-color: #3a6f5845}
+.Banner { grid-area: Banner; background-color: #3a6f5845}
+.SpaceLeft { grid-area: SpaceLeft; background-color: #3a6f5845}
+.Positions { grid-area: Positions; background-color: #3a6f5845}
+.RightBox1 { grid-area: RightBox1; background-color: #3a6f5845}
+.RightBox2 { grid-area: RightBox2; background-color: #3a6f5845}
+.SpacerRight { grid-area: SpacerRight; background-color: #3a6f5845}
 
-/* created this grid layout on https://grid.layoutit.com */
-/* .Header { grid-area: 1 / 1 / 2 / 8; background-color: #707df145; height: 45px; } */
-.Header { grid-area: 1 / 1 / 2 / 8; height: 45px;}
-.Banner { grid-area: 2 / 3 / 3 / 6; background-color: #707df145;}
-.RightBox1 { grid-area: 3 / 6 / 5 / 7; background-color: #462e6345;}
-.RightBox2 { grid-area: 5 / 6 / 7 / 7; background-color: #462e6345;}
-/* .SpacerLeft { grid-area: 2 / 1 / 7 / 2; background-color: #f1707b45;} */
-.SpacerLeft { grid-area: 2 / 1 / 7 / 2; }
-/* .SpacerRight { grid-area: 2 / 7 / 7 / 8; background-color: #f1707b45; } */
-.SpacerRight { grid-area: 2 / 7 / 7 / 8; }
-.GridArea { grid-area: 3 / 2 / 7 / 6; outline: #d9e80d solid thin;}
+.Grid1 { grid-area: Grid1; background-color: #3a516f45}
+.Grid2 { grid-area: Grid2; background-color: #3a516f45}
+.Grid3 { grid-area: Grid3; background-color: #3a516f45}
+.Grid4 { grid-area: Grid4; background-color: #3a516f45}
+.Grid5 { grid-area: Grid5; background-color: #3a516f45}
+.Grid6 { grid-area: Grid6; background-color: #3a516f45}
+.Grid7 { grid-area: Grid7; background-color: #3a516f45}
+.Grid8 { grid-area: Grid8; background-color: #3a516f45}
+.Grid9 { grid-area: Grid9; background-color: #3a516f45}
+.Grid10 { grid-area: Grid10; background-color: #3a516f45}
+.Grid11 { grid-area: Grid11; background-color: #3a516f45}
+.Grid12 { grid-area: Grid12; background-color: #3a516f45}
+.Grid13 { grid-area: Grid13; background-color: #3a516f45}
+.Grid14 { grid-area: Grid14; background-color: #3a516f45}
+.Grid15 { grid-area: Grid15; background-color: #3a516f45}
+.Grid16 { grid-area: Grid16; background-color: #3a516f45}
 
-.Grid1 { grid-area: 3 / 2 / 4 / 3; background-color: #23cd8345; transition: 600ms;
-    /* grid-area: Grid1; */
-}
+.GridView { grid-area: GridView; background-color: #3a6f5845}
+.Footer { grid-area: Footer; background-color: #3a6f5845}
 
-/* .animate .item1 {
-    background-color: lightcoral;
-} */
-
-
-.Grid2  { grid-area: 3 / 3 / 4 / 4; background-color: #3a6f5845;}
-.Grid3  { grid-area: 3 / 4 / 4 / 5; background-color: #3a6f5845;}
-.Grid4  { grid-area: 3 / 5 / 4 / 6; background-color: #3a6f5845;}
-.Grid5  { grid-area: 4 / 2 / 5 / 3; background-color: #3a6f5845;}
-.Grid6  { grid-area: 4 / 3 / 5 / 4; background-color: #3a6f5845;}
-.Grid7  { grid-area: 4 / 4 / 5 / 5; background-color: #3a6f5845;}
-.Grid8  { grid-area: 4 / 5 / 5 / 6; background-color: #3a6f5845;}
-.Grid9  { grid-area: 5 / 2 / 6 / 3; background-color: #3a6f5845;}
-.Grid10 { grid-area: 5 / 3 / 6 / 4; background-color: #3a6f5845;}
-.Grid11 { grid-area: 5 / 4 / 6 / 5; background-color: #3a6f5845;}
-.Grid12 { grid-area: 5 / 5 / 6 / 6; background-color: #3a6f5845;}
-.Grid13 { grid-area: 6 / 2 / 7 / 3; background-color: #3a6f5845;}
-.Grid14 { grid-area: 6 / 3 / 7 / 4; background-color: #3a6f5845;}
-.Grid15 { grid-area: 6 / 4 / 7 / 5; background-color: #3a6f5845;}
-.Grid16 { grid-area: 6 / 5 / 7 / 6; background-color: #3a6f5845;}
-.Footer { grid-area: 7 / 1 / 8 / 8; background-color: #707df145; }
-
-/* this values below are what the animations will grow to  */
-.Grid17 { grid-area: 3 / 2 / 5 / 4; background-color: #3a6f5845;}
-.Grid18 { grid-area: 3 / 4 / 5 / 6; background-color: #3a6f5845;}
-.Grid19 { grid-area: 5 / 2 / 7 / 4; background-color: #3a6f5845;}
-.Grid20 { grid-area: 5 / 4 / 7 / 6; background-color: #3a6f5845;}
-.Grid21 { grid-area: 3 / 2 / 7 / 6; background-color: #3a6f5845;}
-
-/* next! need to animate the backgound of the grid-area changing on 
-keyboard click
- */
-
-.grid-container {
-    display: grid;
-    
-    grid-template-columns: repeat(4, 4fr);  /* Creates 4 columns */
-    grid-template-rows: repeat(4, 4fr);  /* Creates 4 rows */
-    gap: 20px; /* Space between grid items */
-        
-    height: 100vh; /* Full viewport height */
-    width: calc(100% - 300px);
-    padding: 20px; /* Padding around the grid */
-    padding-top: 100px;
-    padding-left: 40px;
-    /* display: flex; */
-    /* yellow */
-    /* testing thin outline for title bar */
-    outline: #d9e80d solid thin;
-    transition: background-color 1s; /* Add transition for color change */
-
-}
-
-
-.grid-item {
-    background-color: #14141e; /* background color of the grid square */
-    border-radius: 15px; /* rounded boarder */
-    /* border: 1px solid #ccc; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    
-}
-
+/* ///////////////////////// Testing /////////////////////// */
 
 #titlebar {
     /* display: flex; */
@@ -131,12 +80,17 @@ keyboard click
 
 /* make the new title bar draggable*/
 #titlebar #drag-region {
-    /* allow for the cursor to change to resize when we hover near the edge of the window at the top */
-    width: calc(100% - 2px);
-    height: calc(100% - 2px);
-    margin: 2px;
+    /* allow for the cursor to change to resize when we hover near the edge of the window at the top, left, or right */
+    width: calc(100% - 12px); 
+    height: calc(100% - 5px);
+    margin-top: 4px;
+    margin-left: 6px;
+    margin-right: 6px;
+    justify-self: center;
+    justify-items: center;
     -webkit-app-region: drag;
-    outline: #e8400d solid thin;
+    /* test */
+    /* outline: #e8400d solid thin; */
 }
 
 #titlebar #content{
