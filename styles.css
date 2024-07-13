@@ -46,7 +46,7 @@ body {
 .Grid5 { grid-area: 4 / 2 / 5 / 4; background-color: #3a516f45; border-radius: 12px;}
 .Grid6 { grid-area: 4 / 4 / 5 / 5; background-color: #3a516f45; border-radius: 12px;}
 .Grid7 { grid-area: 4 / 5 / 5 / 6; background-color: #3a516f45; border-radius: 12px;}
-.Grid8 { grid-area: 4 / 6 / 5 / 7; background-color: #3a516f45; border-radius: 12px;}
+ .Grid8 { grid-area: 4 / 6 / 5 / 7; background-color: #3a516f45; border-radius: 12px;}
 .Grid9 { grid-area: 5 / 2 / 6 / 4; background-color: #3a516f45; border-radius: 12px;}
 .Grid10 { grid-area: 5 / 4 / 6 / 5; background-color: #3a516f45; border-radius: 12px;}
 .Grid11 { grid-area: 5 / 5 / 6 / 6; background-color: #3a516f45; border-radius: 12px;}
@@ -61,10 +61,13 @@ body {
 .GridLL { grid-area: 5 / 2 / 7 / 5; background-color: #17171f; border-radius: 12px; outline: #a8a8a7 solid thin;}
 .GridLR { grid-area: 5 / 5 / 7 / 7; background-color: #17171f; border-radius: 12px; outline: #a8a8a7 solid thin;}
 
+/* the grid upper and lower space will be injected into the html directly via keystroke  */
 .GridUpper { grid-area: 3 / 2 / 5 / 7; background-color: #17171f; border-radius: 12px; outline: #a8a8a7 solid thin;}
 .GridLower { grid-area: 5 / 2 / 7 / 7; background-color: #17171f; border-radius: 12px; outline: #a8a8a7 solid thin;}
 .GridFull { grid-area: 3 / 2 / 7 / 7; background-color: #17171f; border-radius: 12px; outline: #a8a8a7 solid thin;}
 .Footer { grid-area: 7 / 1 / 8 / 9; background-color: #17171f; padding: 10px 0; text-indent: 30px; outline: #dde80d solid thin; color:#cdd2d7}
+
+
 
 
 /* .container {  display: grid; */
