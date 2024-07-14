@@ -6,20 +6,20 @@
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'"> -->
-        <link rel="stylesheet" type="text/css" href="./styles.css">
-        <header id="titlebar">
-            <div id="drag-region"></div>
-        </header>
-
-        <!-- <div id="main">
-            <h1>Hello World!</h1>
-            <p>Lorem ipsum dolor sit amet...</p>
-        </div> -->
-
-<!-- use the webpage here and possibly use keyboard shortcuts to inject new views -->
-<!-- https://www.geeksforgeeks.org/dynamic-styling-in-electronjs/amp/ -->
-
-        <body>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <header id="titlebar">
+        <div id="drag-region"></div>
+    </header>
+    
+    <!-- <div id="main">
+        <h1>Hello World!</h1>
+        <p>Lorem ipsum dolor sit amet...</p>
+    </div> -->
+    
+    <!-- use the webpage here and possibly use keyboard shortcuts to inject new views -->
+    <!-- https://www.geeksforgeeks.org/dynamic-styling-in-electronjs/amp/ -->
+    
+    <body>
             <div class="container">
                 <div class="Header"></div>
                 <div class="SpaceLeft"></div>
@@ -54,34 +54,6 @@
                 <!-- <div class="GridFull">Grid Full</div> -->
                 <div class="Footer">Connection Up</div>
             </div>
-            <!-- testing - delete below -->
-            <div>
-                <script>
-                    let headerHeight = 1;
-                    let mainWidth = 2;
-                
-                window.electron.onIncreaseHeight(() => {
-                    headerHeight += 1;
-                    document.querySelector('.container').style.gridTemplateRows = `${headerHeight}fr 1fr`;
-                });
-            
-                window.electron.onDecreaseHeight(() => {
-                    headerHeight = Math.max(headerHeight - 1, 1);
-                    document.querySelector('.container').style.gridTemplateRows = `${headerHeight}fr 1fr`;
-                });
-            
-                window.electron.onIncreaseWidth(() => {
-                    mainWidth += 1;
-                    document.querySelector('.grid-container').style.gridTemplateColumns = `1fr ${mainWidth}fr`;
-                });
-            
-                window.electron.onDecreaseWidth(() => {
-                    mainWidth = Math.max(mainWidth - 1, 1);
-                    document.querySelector('.grid-container').style.gridTemplateColumns = `1fr ${mainWidth}fr`;
-                });
-                </script>
-            </div>
-<!-- testing - delete above -->
 
 
             <!-- <div class="container"> -->
@@ -109,9 +81,9 @@
 
             <!-- </div> -->
             <!-- More grid items with different canvas ids... -->
-
-
-    </body>
+            <!-- testing -->
+            <script src="./renderer.js"></script>
+        </body>
     <!-- need to add another grid conponent to the right of the current one -->
 
 </head>

@@ -1,11 +1,13 @@
 const { ipcRenderer } = require('electron');
 
+
 // console.log("renderer runs as soon as page loads")
 // => { desktop: true }
 // This file is required by the index.html file and will
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
 
+console.log(document.getElementById('div').className)
 
 if(getOS() === "macos"){
     console.log("mac here")
@@ -17,13 +19,22 @@ if(getOS() === "macos"){
 //     document.getElementById('color-box').style.backgroundColor = color;
 // });
 
-document.addEventListener('keydown', (event) => {
-    if (event.ctrlKey && event.key === 'b') {
-        console.log("working? ctrl+b")
-    const title = document.getElementById('color-box');
-    title.style.color = title.style.color === 'blue' ? 'black' : 'blue';
+// not working, why not? - should this be in main?
+document.addEventListener("keydown", logKey);
+
+function logKey(e) {
+console.log(e.code)
+toggle()
+  /*   log.textContent += ` ${e.code}`; */
 }
-});
+
+// document.addEventListener('keydown', (event) => {
+//     if (event.key === 'b') {
+//         console.log("working?")
+//     const title = document.getElementById('color-box');
+//     title.style.color = title.style.color === 'blue' ? 'black' : 'blue';
+// }
+// });
 
 function getOS() {
     let userAgent = window.navigator.userAgent.toLowerCase(),

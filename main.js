@@ -2,12 +2,13 @@
 // Modules to control application life and create native browser window
 const { app, screen, BrowserWindow, globalShortcut, Menu, MenuItem } = require('electron');
 const path = require('node:path')
+    // Register shortcuts from another file
+    // const { registerShortcuts, unregisterShortcuts, localShortcut } = require('./shortcuts');
 // 
 
-// testing
+// import shortcuts from another file
+  require('./shortcuts');
 
-
-const { registerShortcuts, unregisterShortcuts } = require('./shortcuts');
 
 let mainWindow;
 
@@ -21,29 +22,32 @@ require('electron-reload')(__dirname, {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   createWindow()      // cerate application window
-  registerShortcuts() // register shortcuts from the shortcuts.js file
+  // registerShortcuts() // register shortcuts from the shortcuts.js file
   
   // Bring active window to the front  Mac: CMD + I 
   // this bring the app in focus
-  globalShortcut.register('CommandOrControl+I', () => {
-      forceFocusWindow(mainWindow);
-    })
+  const ret = globalShortcut.register('CommandOrControl+I', () => {
+    forceFocusWindow(mainWindow);
+    console.log('front');
+}); if (!ret) { console.log('Registration failed'); }
 
 
     // TESTING //////////////////
 
   // Register local shortcuts
-  localShortcut.register(mainWindow, 'Ctrl+Shift+Up', () => {
-    mainWindow.webContents.send('increase-height');
-  });
+  // localShortcut.register(mainWindow, 'Ctrl+Shift+Up', () => {
+  //   mainWindow.webContents.send('increase-height');
+  // });
 
-  localShortcut.register(mainWindow, 'Ctrl+Shift+Down', () => {
-    mainWindow.webContents.send('decrease-height');
-  });
+  // localShortcut.register(mainWindow, 'Ctrl+Shift+Down', () => {
+  //   mainWindow.webContents.send('decrease-height');
+  // });
 
 
     // TESTING //////////////////
+
   
+
     app.on('activate', () => {
       // On macOS it's common to re-create a window in the app when the
       // dock icon is clicked and there are no other windows open - like in the mail app
@@ -83,19 +87,10 @@ menu.append(new MenuItem({
     //     document.querySelector('.grid-container').style.backgroundColor = 'lightseagreen';
     //   }
     // });
-
     }
   }]
 })) 
 
-
-
-
-// document.addEventListener('keydown', function(event) {
-//   if (event.key === 'a') { // Change 'a' to any key you want to use
-//       document.querySelector('.container').classList.toggle('animate');
-//   }
-// });
 
 
 Menu.setApplicationMenu(menu)
@@ -129,22 +124,22 @@ const createWindow = () => {
       nodeIntegration: true, // enabled for the window controls JavaScript to work
       // enableRemoteModule: true,
       // contextIsolation: false,
-      // devTools: false, // this turns off the ability to hit option+cmd+i
+      devTools: true, // this turns off the ability to hit option+cmd+i
     },
   })
-
-
   
   mainWindow.setWindowButtonVisibility(true) // shows the title Bar traffic light buttons
   mainWindow.loadFile('index.html') // load the index.html of the app.
+  
 
   // Need to figure out how to add graphs into a window inside of the work area
   // do this first thing sunday morning
 }
 
-
+// this is the function that forces the main window to the front
+// putting this here since main window is loaded in main 
 function forceFocusWindow(window) {
-  // mac specific
+  // mac specific.
   if (process.platform === 'darwin') app.focus({ steal: true });
   // windows/linux specific
   else {
@@ -157,17 +152,23 @@ function forceFocusWindow(window) {
 }
 
 app.on('will-quit', () => {
-  // console.log("Application quit")
-  // Unregister all shortcuts
-  unregisterShortcuts();
+  console.log("Application quit")
+  // Unregister global shortcuts
+  globalShortcut.unregisterAll();
+  localShortcut.unregisterAll();
+  // unregisterShortcuts();
 });
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q - like mail 
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') app.quit()
-  console.log(process.platform)
+  // uncomment this if when you want the app to stay active even after
+  // all windows have been closed
+  // if (process.platform !== 'darwin') 
+    app.quit()
+  // console.log(process.platform)
+  console.log("All windows closed")
 })
 
 // In this file you can include the rest of your app's specific main process

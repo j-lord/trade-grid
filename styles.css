@@ -6,7 +6,8 @@ html, body {height: 100%; margin: 0;}
 
 body {
     background: #20202b;
-    color: #FFF;
+    color: #FFF; /* test */
+    /* test boarder green */
     /* border: 3px solid #34d034; */
     overflow-y: hidden;
 }
@@ -46,7 +47,7 @@ body {
 .Grid5 { grid-area: 4 / 2 / 5 / 4; background-color: #3a516f45; border-radius: 12px;}
 .Grid6 { grid-area: 4 / 4 / 5 / 5; background-color: #3a516f45; border-radius: 12px;}
 .Grid7 { grid-area: 4 / 5 / 5 / 6; background-color: #3a516f45; border-radius: 12px;}
- .Grid8 { grid-area: 4 / 6 / 5 / 7; background-color: #3a516f45; border-radius: 12px;}
+.Grid8 { grid-area: 4 / 6 / 5 / 7; background-color: #3a516f45; border-radius: 12px;}
 .Grid9 { grid-area: 5 / 2 / 6 / 4; background-color: #3a516f45; border-radius: 12px;}
 .Grid10 { grid-area: 5 / 4 / 6 / 5; background-color: #3a516f45; border-radius: 12px;}
 .Grid11 { grid-area: 5 / 5 / 6 / 6; background-color: #3a516f45; border-radius: 12px;}
