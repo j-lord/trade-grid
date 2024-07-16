@@ -131,6 +131,15 @@ const createWindow = () => {
   mainWindow.setWindowButtonVisibility(true) // shows the title Bar traffic light buttons
   mainWindow.loadFile('index.html') // load the index.html of the app.
   
+var user = "Coded By Lord"   
+function changeInDom(user) {
+    let code = `
+    var p = document.getElementById("Banner");
+    p.innerHTML = "I am the changed text. "+"${user}";
+    `;
+    mainWindow.webContents.executeJavaScript(code);
+    console.log("work??")
+}
 
   // Need to figure out how to add graphs into a window inside of the work area
   // do this first thing sunday morning
@@ -155,7 +164,7 @@ app.on('will-quit', () => {
   console.log("Application quit")
   // Unregister global shortcuts
   globalShortcut.unregisterAll();
-  localShortcut.unregisterAll();
+  // localShortcut.unregisterAll();
   // unregisterShortcuts();
 });
 
