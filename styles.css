@@ -11,116 +11,132 @@ body {
     /* border: 3px solid #34d034; */
     overflow-y: hidden;
 }
-/* .header {
-    grid-column: 1/3;
-    grid-row: 1/2;
-} */
-/* still need to do some work on the repeat as we want the smallest to be a square */
-/* changes both this area as well as the mainWindow width and height */
 
-/* ///////////////////////// Testing /////////////////////// */
-
+/* Grid saved here */
+/* https://grid.layoutit.com/?id=2SvP1W6 */
 .container {  display: grid;
-    grid-template-columns: 0.1fr 1fr 0.8fr 2fr 1.8fr 1.9fr 1.5fr 0.1fr;
-    grid-template-rows: 0.3fr 0.3fr 1.7fr 1.8fr 1.8fr 1.8fr 0.3fr;
-    grid-auto-columns: 1fr;
+    /*                     1      2      3      4      5     */
+    grid-template-columns: 0.1fr  0.4fr  2.7fr  0.5fr  0.1fr;
+    grid-template-rows:    0.1fr  0.1fr  1.1fr  1.1fr  0.1fr;
     gap: 10px 10px;
-    grid-auto-flow: column;
-    justify-content: stretch;
     width: 100%;
     height: 100%;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "Header     Header      Header      Header      Header"
+    "SpaceLeft  GridView    Banner      GridView2   SpaceRight"
+    "SpaceLeft  InnerArea   InnerArea   RightBox1   SpaceRight"
+    "SpaceLeft  InnerArea   InnerArea   RightBox2   SpaceRight"
+    "Footer     Footer      Footer      Footer      Footer";
 }
 
-
-.Header { grid-area: 1 / 1 / 2 / 9; background-color: #17171f;}
-.SpaceLeft { grid-area: 2 / 1 / 7 / 2; }
-.SpacerRight { grid-area: 2 / 8 / 7 / 9; }
-.GridView { grid-area: 2 / 2 / 3 / 3; font-size: 24px; padding: 20px 0;}
-.Banner { grid-area: 2 / 3 / 3 / 7; padding: 20px 0; background-color: #3a6f5845}
-.Positions { grid-area: 2 / 7 / 3 / 8; font-size: 18px; padding: 20px 0;}
-.RightBox1 { grid-area: 3 / 7 / 5 / 8; border-radius: 12px; outline: #a8a8a7 solid thin;}
-.RightBox2 { grid-area: 5 / 7 / 7 / 8; border-radius: 12px; outline: #a8a8a7 solid thin;}
-.Grid1 { grid-area: 3 / 2 / 4 / 4; background-color: #3a516f45; border-radius: 12px;}
-.Grid2 { grid-area: 3 / 4 / 4 / 5; background-color: #3a516f45; border-radius: 12px;}
-.Grid3 { grid-area: 3 / 5 / 4 / 6; background-color: #3a516f45; border-radius: 12px;}
-.Grid4 { grid-area: 3 / 6 / 4 / 7; background-color: #3a516f45; border-radius: 12px;}
-.Grid5 { grid-area: 4 / 2 / 5 / 4; background-color: #3a516f45; border-radius: 12px;}
-.Grid6 { grid-area: 4 / 4 / 5 / 5; background-color: #3a516f45; border-radius: 12px;}
-.Grid7 { grid-area: 4 / 5 / 5 / 6; background-color: #3a516f45; border-radius: 12px;}
-.Grid8 { grid-area: 4 / 6 / 5 / 7; background-color: #3a516f45; border-radius: 12px;}
-.Grid9 { grid-area: 5 / 2 / 6 / 4; background-color: #3a516f45; border-radius: 12px;}
-.Grid10 { grid-area: 5 / 4 / 6 / 5; background-color: #3a516f45; border-radius: 12px;}
-.Grid11 { grid-area: 5 / 5 / 6 / 6; background-color: #3a516f45; border-radius: 12px;}
-.Grid12 { grid-area: 5 / 6 / 6 / 7; background-color: #3a516f45; border-radius: 12px;}
-.Grid13 { grid-area: 6 / 2 / 7 / 4; background-color: #3a516f45; border-radius: 12px;}
-.Grid14 { grid-area: 6 / 4 / 7 / 5; background-color: #3a516f45; border-radius: 12px;}
-.Grid15 { grid-area: 6 / 5 / 7 / 6; background-color: #3a516f45; border-radius: 12px;}
-.Grid16 { grid-area: 6 / 6 / 7 / 7; background-color: #3a516f45; border-radius: 12px;}
-
-.GridUL { grid-area: 3 / 2 / 5 / 5; background-color: #17171f; border-radius: 12px; outline: #a8a8a7 solid thin;}
-.GridUR { grid-area: 3 / 5 / 5 / 7; background-color: #17171f; border-radius: 12px; outline: #a8a8a7 solid thin;}
-.GridLL { grid-area: 5 / 2 / 7 / 5; background-color: #17171f; border-radius: 12px; outline: #a8a8a7 solid thin;}
-.GridLR { grid-area: 5 / 5 / 7 / 7; background-color: #17171f; border-radius: 12px; outline: #a8a8a7 solid thin;}
-
-/* the grid upper and lower space will be injected into the html directly via keystroke  */
-.GridUpper { grid-area: 3 / 2 / 5 / 7; background-color: #17171f; border-radius: 12px; outline: #a8a8a7 solid thin;}
-.GridLower { grid-area: 5 / 2 / 7 / 7; background-color: #17171f; border-radius: 12px; outline: #a8a8a7 solid thin;}
-.GridFull { grid-area: 3 / 2 / 7 / 7; background-color: #17171f; border-radius: 12px; outline: #a8a8a7 solid thin;}
-.Footer { grid-area: 7 / 1 / 8 / 9; background-color: #17171f; padding: 10px 0; text-indent: 30px; outline: #dde80d solid thin; color:#cdd2d7}
-
-
-
-
-/* .container {  display: grid; */
-    /*                        1     2      3        4       5       6       7       8      */
-    /* grid-template-columns:  0.1fr   1fr     0.8fr   2fr     1.8fr   1.9fr   1.5fr   0.1fr;
-    grid-template-rows:             0.4fr   0.4fr   1.8fr   1.8fr   1.8fr   1.8fr   0.25fr;
-    grid-auto-columns: 1fr;
-    gap: 10px 10px;
-    grid-auto-flow: column;
-    justify-content: stretch; */
-    /* 16s */
-    /* grid-template-areas:
-    "Header       Header      Header  Header  Header  Header  Header      Header"
-    "SpaceLeft    GridView    Banner  Banner  Banner  Banner  Positions   SpacerRight"
-    "SpaceLeft    Grid1       Grid1   Grid2   Grid3   Grid4   RightBox1   SpacerRight"
-    "SpaceLeft    Grid5       Grid5   Grid6   Grid7   Grid8   RightBox1   SpacerRight"
-    "SpaceLeft    Grid9       Grid9   Grid10  Grid11  Grid12  RightBox2   SpacerRight"
-    "SpaceLeft    Grid13      Grid13  Grid14  Grid15  Grid16  RightBox2   SpacerRight"
-    "Footer       Footer      Footer  Footer  Footer  Footer  Footer      Footer"; */
-
-/*     
-    width: 100%;
-    height: 100%;
-} */
-
-/* .Header { grid-area: Header; background-color: #17171f}
-.SpaceLeft { grid-area: SpaceLeft; }
+.Header     { grid-area: Header; background-color: #17171f}
+.SpaceLeft  { grid-area: SpaceLeft; }
+.GridView   { grid-area: GridView; font-size: 24px; padding: 20px 0; }
+.Banner     { grid-area: Banner; background-color: #3a6f5845}
 .SpacerRight { grid-area: SpacerRight; }
-.GridView { grid-area: GridView; font-size: 24px; padding: 20px 0; }
-.Banner { grid-area: Banner; background-color: #3a6f5845}
-.Positions { grid-area: Positions; font-size: 18px; padding: 20px 0;}
-.RightBox1 { grid-area: RightBox1; border-radius: 12px; outline: #a8a8a7 solid thin;}
-.RightBox2 { grid-area: RightBox2; border-radius: 12px; outline: #a8a8a7 solid thin;}
+.GridView2 { grid-area: GridView2; background-color: #3a6f5845}
+.RightBox1  { grid-area: RightBox1; border-radius: 12px; outline: #a8a8a7 solid thin;}
+.RightBox2  { grid-area: RightBox2; border-radius: 12px; outline: #a8a8a7 solid thin;}
+.Footer { grid-area: Footer; background-color: #17171f; padding: 10px 0; text-indent: 30px; outline: #dde80d solid thin; color:#cdd2d7}
 
-.Grid1 { grid-area: Grid1; background-color: #3a516f45; border-radius: 12px;}
-.Grid2 { grid-area: Grid2; background-color: #3a516f45; border-radius: 12px;}
-.Grid3 { grid-area: Grid3; background-color: #3a516f45; border-radius: 12px;}
-.Grid4 { grid-area: Grid4; background-color: #3a516f45; border-radius: 12px;}
-.Grid5 { grid-area: Grid5; background-color: #3a516f45; border-radius: 12px;}
-.Grid6 { grid-area: Grid6; background-color: #3a516f45; border-radius: 12px;}
-.Grid7 { grid-area: Grid7; background-color: #3a516f45; border-radius: 12px;}
-.Grid8 { grid-area: Grid8; background-color: #3a516f45; border-radius: 12px;}
-.Grid9 { grid-area: Grid9; background-color: #3a516f45; border-radius: 12px;}
-.Grid10 { grid-area: Grid10; background-color: #3a516f45; border-radius: 12px;}
-.Grid11 { grid-area: Grid11; background-color: #3a516f45; border-radius: 12px;}
-.Grid12 { grid-area: Grid12; background-color: #3a516f45; border-radius: 12px;}
-.Grid13 { grid-area: Grid13; background-color: #3a516f45; border-radius: 12px;}
-.Grid14 { grid-area: Grid14; background-color: #3a516f45; border-radius: 12px;}
-.Grid15 { grid-area: Grid15; background-color: #3a516f45; border-radius: 12px;}
-.Grid16 { grid-area: Grid16; background-color: #3a516f45; border-radius: 12px;}
-.Footer { grid-area: Footer; background-color: #17171f; padding: 10px 0; text-indent: 30px; outline: #dde80d solid thin; color:#cdd2d7} */
+.InnerArea {  display: grid;
+    /*                     1   2   3   4  */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "Grid1  Grid2   Grid3   Grid4"
+        "Grid5  Grid6   Grid7   Grid8"
+        "Grid9  Grid10  Grid11  Grid12"
+        "Grid13 Grid14  Grid15  Grid16";
+        grid-area: InnerArea;
 
+        /* animation testing */
+        /* transition: all 1s ease; */
+        animation-duration: 0.5s;
+        animation-name: expandGrid;
+        /* animation-iteration-count: 1; */
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+
+        /* short hand */
+        /* animation: changeGrid 5s infinite; */
+    }
+
+    .Grid1  { grid-area: Grid1;  background-color: #3a516f45; border-radius: 12px;}
+    .Grid2  { grid-area: Grid2;  background-color: #3a516f45; border-radius: 12px;}
+    .Grid3  { grid-area: Grid3;  background-color: #3a516f45; border-radius: 12px;}
+    .Grid4  { grid-area: Grid4;  background-color: #3a516f45; border-radius: 12px;}
+    .Grid5  { grid-area: Grid5;  background-color: #3a516f45; border-radius: 12px;}
+    .Grid6  { grid-area: Grid6;  background-color: #3a516f45; border-radius: 12px;}
+    .Grid7  { grid-area: Grid7;  background-color: #3a516f45; border-radius: 12px;}
+    .Grid8  { grid-area: Grid8;  background-color: #3a516f45; border-radius: 12px;}
+    .Grid9  { grid-area: Grid9;  background-color: #3a516f45; border-radius: 12px;}
+    .Grid10 { grid-area: Grid10; background-color: #3a516f45; border-radius: 12px;}
+    .Grid11 { grid-area: Grid11; background-color: #3a516f45; border-radius: 12px;}
+    .Grid12 { grid-area: Grid12; background-color: #3a516f45; border-radius: 12px;}
+    .Grid13 { grid-area: Grid13; background-color: #3a516f45; border-radius: 12px;}
+    .Grid14 { grid-area: Grid14; background-color: #3a516f45; border-radius: 12px;}
+    .Grid15 { grid-area: Grid15; background-color: #3a516f45; border-radius: 12px;}
+    .Grid16 { grid-area: Grid16; background-color: #3a516f45; border-radius: 12px;}
+
+/* animation testing */
+@keyframes expandGrid {
+    0% {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        gap: 10px 10px;
+        grid-auto-flow: row;
+        grid-template-areas:
+        "Grid1  Grid2   Grid3   Grid4"
+        "Grid5  Grid6   Grid7   Grid8"
+        "Grid9  Grid10  Grid11  Grid12"
+        "Grid13 Grid14  Grid15  Grid16";
+        /* use clip path when you put content in the square */
+        /* clip-path: polygon(0 0, 105% 0, 105% 100%, 0 100%); */
+    }
+
+    70% {
+        /*                      1   2     3   4   */
+        grid-template-columns:  1fr 0.3fr 1fr 0.3fr;
+        grid-template-rows:     1fr 0.3fr 1fr 0.3fr;
+        gap: 10px 10px;
+        grid-auto-flow: row;
+        grid-template-areas:
+        "Grid1  Grid2   Grid3   Grid4"
+        "Grid5  Grid6   Grid7   Grid8"
+        "Grid9  Grid10  Grid11  Grid12"
+        "Grid13 Grid14  Grid15  Grid16";
+    }
+
+    99% {
+        /*                      1   2     3   4   */
+        grid-template-columns:  1fr 0.02fr 1fr 0.02fr;
+        grid-template-rows:     1fr 0.02fr 1fr 0.02fr;
+        gap: 10px 10px;
+        grid-auto-flow: row;
+        grid-template-areas:
+        "Grid1  Grid2   Grid3   Grid4"
+        "Grid5  Grid6   Grid7   Grid8"
+        "Grid9  Grid10  Grid11  Grid12"
+        "Grid13 Grid14  Grid15  Grid16";
+    }
+
+    100% {
+        /*                      1     2      3      4     5     6     7      8      */
+        grid-template-columns:  1fr 0fr 1fr 0fr;
+        grid-template-rows:     1fr 0fr 1fr 0fr;
+        gap: 10px 10px;
+        grid-auto-flow: row;
+        grid-template-areas:
+        "Grid1  Grid1   Grid3   Grid3"
+        "Grid1  Grid1   Grid3   Grid3"
+        "Grid9  Grid9   Grid11   Grid11"
+        "Grid9  Grid9   Grid11   Grid11";
+    }
+}
 
 /* ///////////////////////// Testing /////////////////////// */
 
@@ -138,7 +154,7 @@ body {
 #titlebar #drag-region {
     /* allow for the cursor to change to resize when we hover near the edge of the window at the top, left, or right */
     width: calc(100% - 12px); 
-    height: calc(100% - 5px);
+    height: calc(100%);
     margin-top: 4px;
     margin-left: 6px;
     margin-right: 6px;
