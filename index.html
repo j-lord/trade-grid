@@ -30,26 +30,51 @@
             <div class="SpaceRight"></div>
             <div class="GridView2"></div>
             <div class="Footer">Footer</div>
-
-            <div class="InnerArea">
-                <div class="Grid1">Grid1</div>
-                <!-- <div class="Grid2">Grid2</div> -->
+            
+            <div id="InnerArea">
+                <div class="Grid2">Grid2</div>
                 
-                <div class="Grid3">Grid2</div>
+                <div class="Grid1">Grid1</div>            
+                <div class="Grid3">Grid3</div>
                 <!-- <div class="Grid4">Grid4</div> -->
                 <!-- <div class="Grid5">Grid5</div> -->
                 <!-- <div class="Grid6">Grid6</div> -->
                 <!-- <div class="Grid7">Grid7</div> -->
                 <!-- <div class="Grid8">Grid8</div> -->
-                <div class="Grid9">Grid3</div>
+                <div class="Grid9">Grid9</div>
                 <!-- <div class="Grid10">Grid10</div> -->
-                <div class="Grid11">Grid4</div>
+                <div class="Grid11">Grid11</div>
                 <!-- <div class="Grid12">Grid12</div> -->
                 <!-- <div class="Grid13"></div> -->
                 <!-- <div class="Grid14"></div> -->
                 <!-- <div class="Grid15"></div> -->
                 <!-- <div class="Grid16"></div> -->
+
+                <!-- test removing and adding one the more than one of the cards -->
+
+                <!-- when we come back, use this to add and more the elements from the page -->
+                <!-- <button onclick="removeElement()">Remove Element</button> -->
+                <!-- <button onclick="addElement()">Add Element</button> -->
+
+                <script>
+                    var removedElement;
+            
+                    function removeElement() {
+                        var element = document.getElementByClassName("Grid2");
+                        removedElement = element.parentNode.removeChild(element);
+                    }
+                    function addElement() {
+                        if (removedElement) {
+                            var container = document.getElementByClassName("container");
+                            container.appendChild(removedElement);
+                        }
+                    }
+                </script>
+            
+
             </div>
+        
+
 
         </div>
 

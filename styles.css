@@ -40,7 +40,7 @@ body {
 .RightBox2  { grid-area: RightBox2; border-radius: 12px; outline: #a8a8a7 solid thin;}
 .Footer { grid-area: Footer; background-color: #17171f; padding: 10px 0; text-indent: 30px; outline: #dde80d solid thin; color:#cdd2d7}
 
-.InnerArea {  display: grid;
+#InnerArea {  display: grid;
     /*                     1   2   3   4  */
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
