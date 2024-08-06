@@ -145,7 +145,7 @@ function changeInDom(user) {
   // do this first thing sunday morning
 }
 
-// this is the function that forces the main window to the front
+// this is the function  that forces the main window to the front
 // putting this here since main window is loaded in main 
 function forceFocusWindow(window) {
   // mac specific.
