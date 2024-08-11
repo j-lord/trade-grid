@@ -3,90 +3,123 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'"> -->
-    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
     <header id="titlebar">
-        <div id="drag-region"></div>
+    <div id="drag-region"></div>
     </header>
-    
+
     <!-- <div id="main">
         <h1>Hello World!</h1>
         <p>Lorem ipsum dolor sit amet...</p>
     </div> -->
-    
+
     <!-- use the webpage here and possibly use keyboard shortcuts to inject new views -->
     <!-- https://www.geeksforgeeks.org/dynamic-styling-in-electronjs/amp/ -->
-    
+
     <body>
-        <div class="container">
-            <div class="Header"></div>
-            <div class="SpaceLeft"></div>
-            <div class="GridView">GridView</div>
-            <div class="Banner">Banner</div>
-            <div class="RightBox1">RightBox1</div>
-            <div class="RightBox2">RightBox2</div>
-            <div class="SpaceRight"></div>
-            <div class="GridView2"></div>
-            <div class="Footer">Footer</div>
-            
-            <div id="InnerArea">
-                <div class="Grid2">Grid2</div>
-                
-                <div class="Grid1">Grid1</div>            
-                <div class="Grid3">Grid3</div>
-                <!-- <div class="Grid4">Grid4</div> -->
-                <!-- <div class="Grid5">Grid5</div> -->
-                <!-- <div class="Grid6">Grid6</div> -->
-                <!-- <div class="Grid7">Grid7</div> -->
-                <!-- <div class="Grid8">Grid8</div> -->
-                <div class="Grid9">Grid9</div>
-                <!-- <div class="Grid10">Grid10</div> -->
-                <div class="Grid11">Grid11</div>
-                <!-- <div class="Grid12">Grid12</div> -->
-                <!-- <div class="Grid13"></div> -->
-                <!-- <div class="Grid14"></div> -->
-                <!-- <div class="Grid15"></div> -->
-                <!-- <div class="Grid16"></div> -->
+    <div class="container">
+        <div class="Header"></div>
+        <div class="SpaceLeft"></div>
+        <div class="GridView">GridView</div>
+        <div class="Banner">Banner</div>
+        <div class="RightBox1">RightBox1</div>
+        <div class="RightBox2">RightBox2</div>
+        <div class="SpaceRight"></div>
+        <div class="GridView2"></div>
+        <div class="Footer">Footer</div>
 
-                <!-- test removing and adding one the more than one of the cards -->
+        <div id="InnerArea">
+        <div id="grid1" class="Grid1">Grid1</div>
+        <div id="grid2" class="Grid2">Grid2</div>
+        <div id="grid3" class="Grid3">Grid3</div>
+        <div id="grid4" class="Grid4">Grid4</div>
+        <div id="grid5" class="Grid5">Grid5</div>
+        <div id="grid6" class="Grid6">Grid6</div>
+        <div id="grid7" class="Grid7">Grid7</div>
+        <div id="grid8" class="Grid8">Grid8</div>
+        <div id="grid9" class="Grid9">Grid9</div>
+        <div id="grid10" class="Grid10">Grid10</div>
+        <div id="grid11" class="Grid11">Grid11</div>
+        <div id="grid12" class="Grid12">Grid12</div>
+        <div id="grid13" class="Grid13">Grid13</div>
+        <div id="grid14" class="Grid14">Grid14</div>
+        <div id="grid15" class="Grid15">Grid15</div>
+        <div id="grid16" class="Grid16">Grid16</div>
 
-                <!-- when we come back, use this to add and more the elements from the page -->
-                <!-- <button onclick="removeElement()">Remove Element</button>
-                <button onclick="addElement()">Add Element</button> -->
+        <script>
+            // Define the key that will trigger the animation. Here, it is the "a" key.
+            const triggerKeyR = "r";
+            const triggerKeyA = "a";
+            // const add = 'a';
 
-                <script>
-                    var removedElement;
-            
-                    // function removeElement() {
-                    //     const element = document.getElementByClassName("Grid2");
-                    //     removedElement = element.parentNode.removeChild(element);
-                    // }
+            // using IDs to identify what needs to be removed because i could only figure out
+            // how to remove 1 class name at a time - since id names unique
+            // Add an event listener for the keydown event
+            document.addEventListener("keydown", function (event) {
+            // Check if the pressed key matches the trigger key
+            if (event.key.toLowerCase() === triggerKeyR) {
+                removeElementsByIds([
+                "grid2",
+                "grid4",
+                "grid5",
+                "grid6",
+                "grid7",
+                "grid8",
+                "grid10",
+                "grid12",
+                "grid13",
+                "grid14",
+                "grid15",
+                "grid16",
+                ]);
 
-                    // function addElement() {
-                    //     if (removedElement) {
-                    //         var container = document.getElementByClassName("container");
-                    //         container.appendChild(removedElement);
-                    //     }
-                    // }
+                // need to understand why
+                document.getElementById('InnerArea').style.animation="expandGrid";
 
-                </script>
-            
+                // activateAnimation();
+            }
+            if (event.key.toLowerCase() === triggerKeyA) {
+                addElementsByIds();
+                    // activateAnimation();
+            }
+            });
+            // Store a reference to the removed elements
+            let removedElements = [];
+            function removeElementsByIds(ids) {
+            ids.forEach((id) => {
+                // Select the element by its ID
+                const element = document.getElementById(id);
 
-            </div>
-        
-
-
+                if (element) {
+                // Store a reference to the element and its parent
+                removedElements.push({
+                    element,
+                    parent: element.parentNode,
+                    nextSibling: element.nextSibling,
+                });
+                // Remove the element from the DOM
+                element.remove();
+                }
+            });
+            }
+            function addElementsByIds() {
+            // Append each stored element back to its original parent
+            removedElements.forEach(({ element, parent, nextSibling }) => {
+                if (nextSibling) {
+                parent.insertBefore(element, nextSibling);
+                } else {
+                parent.appendChild(element);
+                }
+            }); // Clear the removedElements array
+            removedElements = [];
+            }
+        </script>
         </div>
-
-            <!-- </div> -->
-            <!-- More grid items with different canvas ids... -->
-            <!-- testing -->
-            <script src="./renderer.js"></script>
-        </body>
-    <!-- need to add another grid conponent to the right of the current one -->
-
+    </div>
+    <!-- <script src="./renderer.js"></script> -->
+    </body>
 </head>
 </html>
-
