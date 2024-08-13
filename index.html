@@ -53,6 +53,7 @@
             // Define the key that will trigger the animation. Here, it is the "a" key.
             const triggerKeyR = "r";
             const triggerKeyA = "a";
+            const triggerKeyE = "e";
             // const add = 'a';
 
             // using IDs to identify what needs to be removed because i could only figure out
@@ -75,24 +76,39 @@
                 "grid15",
                 "grid16",
                 ]);
-
-                // need to understand why
-                document.getElementById('InnerArea').style.animation="expandGrid";
-
-                // activateAnimation();
             }
+
             if (event.key.toLowerCase() === triggerKeyA) {
                 addElementsByIds();
-                    // activateAnimation();
             }
-            });
+
+            if (event.key.toLowerCase() === triggerKeyE) {
+                // addElementsByIds();
+                // function playAnimationInReverse(){
+                    const element = document.getElementById('InnerArea');       
+                    // element.style.animationPlayState = 'running';
+                    // element.style.animationDirection = 'reverse';
+                    // element.style.animationFillMode = 'forwards';
+                    // window.alert(element.style.animationDirection);
+                // }
+            }
+        });
             // Store a reference to the removed elements
             let removedElements = [];
+            
+
+        
+
             function removeElementsByIds(ids) {
             ids.forEach((id) => {
                 // Select the element by its ID
                 const element = document.getElementById(id);
-
+                // animate the growth of the 4 graphs
+                const animationElement = document.getElementById('InnerArea');
+                animationElement.style.animationPlayState = 'running';
+                // animationElement.style.animationDirection = 'forward';
+                // animationElement.style.animationFillMode = 'forwards';
+                
                 if (element) {
                 // Store a reference to the element and its parent
                 removedElements.push({
@@ -102,9 +118,11 @@
                 });
                 // Remove the element from the DOM
                 element.remove();
+                
                 }
             });
             }
+
             function addElementsByIds() {
             // Append each stored element back to its original parent
             removedElements.forEach(({ element, parent, nextSibling }) => {
