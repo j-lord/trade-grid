@@ -51,6 +51,7 @@
 
         <script>
             // Define the key that will trigger the animation. Here, it is the "a" key.
+            let state = "16";
             const triggerKeyR = "r";
             const triggerKeyA = "a";
             const triggerKeyE = "e";
@@ -62,20 +63,31 @@
             document.addEventListener("keydown", function (event) {
             // Check if the pressed key matches the trigger key
             if (event.key.toLowerCase() === triggerKeyR) {
-                removeElementsByIds([
-                "grid2",
-                "grid4",
-                "grid5",
-                "grid6",
-                "grid7",
-                "grid8",
-                "grid10",
-                "grid12",
-                "grid13",
-                "grid14",
-                "grid15",
-                "grid16",
-                ]);
+
+                switch (state) {
+                case "16":  window.alert(state);    state = "4";   forwardAnmiation(); break;
+                case "4":   window.alert(state);    state = "16"; reverseAnmiation();  break;
+                // case "4":   window.alert(state);    state = "2";    break;
+                // case "2":   window.alert(state);    state = "1";    break;
+                // case "1":   window.alert(state);    state = "2";    break;
+                default:    break;
+                }
+                // comment this out for now
+                // removeElementsByIds([
+                // "grid2",
+                // "grid4",
+                // "grid5",
+                // "grid6",
+                // "grid7",
+                // "grid8",
+                // "grid10",
+                // "grid12",
+                // "grid13",
+                // "grid14",
+                // "grid15",
+                // "grid16",
+                // ]);
+                // window.alert(state);
             }
 
             if (event.key.toLowerCase() === triggerKeyA) {
@@ -89,15 +101,25 @@
                     // element.style.animationPlayState = 'running';
                     // element.style.animationDirection = 'reverse';
                     // element.style.animationFillMode = 'forwards';
-                    // window.alert(element.style.animationDirection);
                 // }
             }
         });
             // Store a reference to the removed elements
             let removedElements = [];
             
-
-        
+            function forwardAnmiation(){
+                const animationElement = document.getElementById('InnerArea');
+                animationElement.style.animationPlayState = 'running';
+                animationElement.style.animationDirection = 'forward';
+                // animationElement.style.animationFillMode = 'forwards';
+            }
+            
+            function reverseAnmiation(){
+                const animationElement = document.getElementById('InnerArea');
+                animationElement.style.animationPlayState = 'running';
+                animationElement.style.animationDirection = 'reverse';
+                // animationElement.style.animationFillMode = 'forwards';
+            }
 
             function removeElementsByIds(ids) {
             ids.forEach((id) => {
@@ -108,7 +130,6 @@
                 animationElement.style.animationPlayState = 'running';
                 // animationElement.style.animationDirection = 'forward';
                 // animationElement.style.animationFillMode = 'forwards';
-                
                 if (element) {
                 // Store a reference to the element and its parent
                 removedElements.push({
@@ -118,7 +139,6 @@
                 });
                 // Remove the element from the DOM
                 element.remove();
-                
                 }
             });
             }
