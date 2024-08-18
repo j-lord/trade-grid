@@ -65,8 +65,8 @@
             if (event.key.toLowerCase() === triggerKeyR) {
 
                 switch (state) {
-                case "16":  window.alert(state);    state = "4";   forwardAnmiation(); break;
-                case "4":   window.alert(state);    state = "16"; reverseAnmiation();  break;
+                case "16":   forwardAnmiation(); window.alert(state);    state = "4";  break;
+                case "4":    reverseAnmiation(); window.alert(state);    state = "16"; break;
                 // case "4":   window.alert(state);    state = "2";    break;
                 // case "2":   window.alert(state);    state = "1";    break;
                 // case "1":   window.alert(state);    state = "2";    break;
@@ -109,16 +109,24 @@
             
             function forwardAnmiation(){
                 const animationElement = document.getElementById('InnerArea');
-                animationElement.style.animationPlayState = 'running';
+                
                 animationElement.style.animationDirection = 'forward';
+                animationElement.style.animationPlayState = 'running';
                 // animationElement.style.animationFillMode = 'forwards';
             }
             
             function reverseAnmiation(){
                 const animationElement = document.getElementById('InnerArea');
-                animationElement.style.animationPlayState = 'running';
-                animationElement.style.animationDirection = 'reverse';
-                // animationElement.style.animationFillMode = 'forwards';
+                            // Set the animation direction to reverse
+            animationElement.style.animationDirection = 'reverse';
+            // Set the animation-play-state to running
+            animationElement.style.animationPlayState = 'running';
+
+            setTimeout(() => {
+                element.style.animationPlayState = 'paused';
+            }, 2000); // Matches the animation duration
+
+
             }
 
             function removeElementsByIds(ids) {
