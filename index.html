@@ -32,101 +32,144 @@
         <div class="Footer">Footer</div>
 
         <div id="InnerArea">
-        <div id="grid1" class="Grid1">Grid1</div>
-        <div id="grid2" class="Grid2">Grid2</div>
-        <div id="grid3" class="Grid3">Grid3</div>
-        <div id="grid4" class="Grid4">Grid4</div>
-        <div id="grid5" class="Grid5">Grid5</div>
-        <div id="grid6" class="Grid6">Grid6</div>
-        <div id="grid7" class="Grid7">Grid7</div>
-        <div id="grid8" class="Grid8">Grid8</div>
-        <div id="grid9" class="Grid9">Grid9</div>
-        <div id="grid10" class="Grid10">Grid10</div>
-        <div id="grid11" class="Grid11">Grid11</div>
-        <div id="grid12" class="Grid12">Grid12</div>
-        <div id="grid13" class="Grid13">Grid13</div>
-        <div id="grid14" class="Grid14">Grid14</div>
-        <div id="grid15" class="Grid15">Grid15</div>
-        <div id="grid16" class="Grid16">Grid16</div>
+        <div id="grid1" class="Grid1">grid1</div>
+        <div id="grid2" class="Grid2">grid2</div>
+        <div id="grid3" class="Grid3">grid3</div>
+        <div id="grid4" class="Grid4">grid4</div>
+        <div id="grid5" class="Grid5">grid5</div>
+        <div id="grid6" class="Grid6">grid6</div>
+        <div id="grid7" class="Grid7">grid7</div>
+        <div id="grid8" class="Grid8">grid8</div>
+        <div id="grid9" class="Grid9">grid9</div>
+        <div id="grid10" class="Grid10">grid10</div>
+        <div id="grid11" class="Grid11">grid11</div>
+        <div id="grid12" class="Grid12">grid12</div>
+        <div id="grid13" class="Grid13">grid13</div>
+        <div id="grid14" class="Grid14">grid14</div>
+        <div id="grid15" class="Grid15">grid15</div>
+        <div id="grid16" class="Grid16">grid16</div>
 
         <script>
             // Define the key that will trigger the animation. Here, it is the "a" key.
             let state = "16";
-            const triggerKeyR = "r";
-            const triggerKeyA = "a";
-            const triggerKeyE = "e";
+            const triggerKeyS = "s";
+            const triggerKeyD = "d";
             // const add = 'a';
 
             // using IDs to identify what needs to be removed because i could only figure out
             // how to remove 1 class name at a time - since id names unique
             // Add an event listener for the keydown event
-            document.addEventListener("keydown", function (event) {
+            document.addEventListener("keydown", function (event) {  
             // Check if the pressed key matches the trigger key
-            if (event.key.toLowerCase() === triggerKeyR) {
-
-                switch (state) {
-                case "16":   forwardAnmiation(); window.alert(state);    state = "4";  break;
-                case "4":    reverseAnmiation(); window.alert(state);    state = "16"; break;
-                // case "4":   window.alert(state);    state = "2";    break;
-                // case "2":   window.alert(state);    state = "1";    break;
-                // case "1":   window.alert(state);    state = "2";    break;
-                default:    break;
-                }
-                // comment this out for now
-                // removeElementsByIds([
-                // "grid2",
-                // "grid4",
-                // "grid5",
-                // "grid6",
-                // "grid7",
-                // "grid8",
-                // "grid10",
-                // "grid12",
-                // "grid13",
-                // "grid14",
-                // "grid15",
-                // "grid16",
-                // ]);
+            if (event.key.toLowerCase() === 's') {
+                // the below is what removes the elements from the grid
                 // window.alert(state);
-            }
 
-            if (event.key.toLowerCase() === triggerKeyA) {
-                addElementsByIds();
-            }
+                switch (state) { // 4x4
+                    case "16": // 16 -> 4
+                    removeElementsByIds(["grid2","grid4","grid5","grid6","grid7","grid8","grid10","grid12","grid13","grid14","grid15","grid16"]);
+                    state = "4"; // now viewing 4 charts
+                    // window.alert("16 changed to 4");  
+                    applyScale("grid4");
+                    break;
+                    // 4 > 2
+                    case "4":
+                    removeElementsByIds(["grid3", "grid11"]);   state = "2";    applyScale("grid2");    break;
+                    // 2 > 1
+                    case "2":
+                    removeElementsByIds(["grid9"]);             state = "1";    applyScale("grid1");    break;
 
-            if (event.key.toLowerCase() === triggerKeyE) {
-                // addElementsByIds();
-                // function playAnimationInReverse(){
-                    const element = document.getElementById('InnerArea');       
-                    // element.style.animationPlayState = 'running';
-                    // element.style.animationDirection = 'reverse';
-                    // element.style.animationFillMode = 'forwards';
-                // }
+                    default:  break;
+                }
             }
+            
+            // if (event.key.toLowerCase() === 'd') {
+            //     switch (state){
+            //         case "4":
+            //             state = "16"; // now viewing 4 charts
+            //             window.alert("4 changed to 16");  
+            //             // animation
+            //         break;
+
+            //         case "16":
+            //             state = "4";
+            //             window.alert("16 changed to 4")
+            //             // animation
+            //         break;
+
+            //         default:  break;
+            //     }
+            // }
         });
+            
+
+            // if (event.key.toLowerCase() === triggerKeyA) {
+            //     addElementsByIds();
+            // }
+
+// left off here - need to finish adding the new scale function
+
+        // going to use 2 keys for the scaling up and down as this is how the grids will be scaled 
+        // document.addEventListener('keydown', function(event) {
+        //     if (event.key === 's'){
+        //         switch (CurrentState) {
+        //             // Test scale function
+        //             case "scaledDown":
+        //                 CurrentState="scaledUp"
+        //                 applyScale('scaleUp');
+        //                 break;
+        //             case "scaledUp":
+        //                 CurrentState="scaledUp2"
+        //                 applyScale('scaleUp2')
+        //                 break;
+        //             default:
+        //                 break;
+        //         }
+        //     }
+        //     if (event.key == 'd'){
+        //         switch (CurrentState){
+        //             case "scaledUp2":
+        //                 CurrentState="scaledUp"
+        //                 applyScale('scaleDown')
+        //                 break;
+        //             case "scaledUp":
+        //                 CurrentState="scaledDown"
+        //                 applyScale('scaleDown2')
+        //                 break;
+        //         }
+        //     }
+        // });
+
+            // if (event.key.toLowerCase() === triggerKeyE) {
+            //     // addElementsByIds();
+            //     // removeElementsByIds();
+            //     // function playAnimationInReverse(){
+            //         const element = document.getElementById('InnerArea');       
+            //         // element.style.animationPlayState = 'running';
+            //         // element.style.animationDirection = 'reverse';
+            //         // element.style.animationFillMode = 'forwards';
+            //     // }
+            // }
+
             // Store a reference to the removed elements
             let removedElements = [];
-            
-            function forwardAnmiation(){
+
+            // lets see if we can make a reusable scale function with a variable name
+            function applyScale(animationName) {
                 const animationElement = document.getElementById('InnerArea');
-                
-                animationElement.style.animationDirection = 'forward';
+                animationElement.style.animationName = animationName;
+                // animationElement.style.animationDirection = 'forward';
                 animationElement.style.animationPlayState = 'running';
-                // animationElement.style.animationFillMode = 'forwards';
-            }
-            
-            function reverseAnmiation(){
-                const animationElement = document.getElementById('InnerArea');
-                            // Set the animation direction to reverse
-            animationElement.style.animationDirection = 'reverse';
-            // Set the animation-play-state to running
-            animationElement.style.animationPlayState = 'running';
-
-            setTimeout(() => {
-                element.style.animationPlayState = 'paused';
-            }, 2000); // Matches the animation duration
-
-
+                animationElement.style.animationIterationCount = '1'; // Play only once
+                animationElement.style.animationDuration = '0.2s';
+                animationElement.style.animationTimingFunction = 'linear';
+                object.style.animationFillMode = "both"
+                // not sure if we need the below
+                // Remove the animation class after it ends to reset for the next trigger
+                // animationElement.addEventListener('animationend', function resetAnimation() {
+                //     animationElement.style.animationName = '';
+                //     animationElement.removeEventListener('animationend', resetAnimation);
+                // });
             }
 
             function removeElementsByIds(ids) {
@@ -135,9 +178,6 @@
                 const element = document.getElementById(id);
                 // animate the growth of the 4 graphs
                 const animationElement = document.getElementById('InnerArea');
-                animationElement.style.animationPlayState = 'running';
-                // animationElement.style.animationDirection = 'forward';
-                // animationElement.style.animationFillMode = 'forwards';
                 if (element) {
                 // Store a reference to the element and its parent
                 removedElements.push({
@@ -149,19 +189,48 @@
                 element.remove();
                 }
             });
-            }
+        }
 
-            function addElementsByIds() {
-            // Append each stored element back to its original parent
-            removedElements.forEach(({ element, parent, nextSibling }) => {
-                if (nextSibling) {
+
+        function addElementsByIds(ids, parentId) {
+    // Get the parent element where the new elements will be added
+    const parentElement = document.getElementById(parentId);
+
+    // Check if the parent element exists
+    if (!parentElement) {
+        console.error('Parent element not found');
+        return;
+    }
+    // Iterate over the array of IDs
+    ids.forEach(id => {
+        // Create a new element (e.g., a div)
+        const newElement = document.createElement('div');
+        // Set the ID for the new element
+        newElement.id = id;
+        // Add some content or inner HTML (optional)
+        // newElement.textContent = `This is element with ID: ${id}`;
+        
+        // Append the new element to the parent element
+        parentElement.appendChild(newElement);
+    });
+}
+
+
+        function addElementsBack() {
+        removedElements.forEach((item) => {
+        const { element, parent, nextSibling } = item;
+        
+        // Add the element back to its original position in the DOM
+        if (nextSibling) {
                 parent.insertBefore(element, nextSibling);
-                } else {
+            } else {
                 parent.appendChild(element);
-                }
-            }); // Clear the removedElements array
-            removedElements = [];
             }
+        });
+
+    // Clear the removedElements array after adding elements back
+    removedElements.length = 0;
+}
         </script>
         </div>
     </div>

@@ -115,12 +115,12 @@ body {
 
     /* animation testing */
     /* transition: all 1s ease; */
-    animation-duration: 0.5s;
-    animation-name: expandGrid;
+    animation-duration: 2s;
+    /* animation-name: compressGrid, expandGrid, grid4, grid2; */
     animation-play-state: paused;
     /* animation-iteration-count: 1; */
     animation-timing-function: linear;
-    animation-fill-mode: forwards;
+    animation-fill-mode: both;
 
     /* short hand */
     /* animation: changeGrid 5s infinite; */
@@ -223,7 +223,7 @@ body {
 }
 
 /* animation testing */
-@keyframes expandGrid {
+@keyframes grid4 {
     0% {
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr;
@@ -240,21 +240,8 @@ body {
 
     70% {
         /*                      1   2     3   4   */
-        grid-template-columns: 1fr 0.3fr 1fr 0.3fr;
-        grid-template-rows: 1fr 0.3fr 1fr 0.3fr;
-        gap: 10px 10px;
-        grid-auto-flow: row;
-        grid-template-areas:
-            "Grid1  Grid2   Grid3   Grid4"
-            "Grid5  Grid6   Grid7   Grid8"
-            "Grid9  Grid10  Grid11  Grid12"
-            "Grid13 Grid14  Grid15  Grid16";
-    }
-
-    99% {
-        /*                      1   2     3   4   */
-        grid-template-columns: 1fr 0.02fr 1fr 0.02fr;
-        grid-template-rows: 1fr 0.02fr 1fr 0.02fr;
+        grid-template-columns: 1fr 0.5fr 1fr 0.5fr;
+        grid-template-rows: 1fr 0.fr 1fr 0.5fr;
         gap: 10px 10px;
         grid-auto-flow: row;
         grid-template-areas:
@@ -275,6 +262,128 @@ body {
             "Grid1  Grid1   Grid3   Grid3"
             "Grid9  Grid9   Grid11   Grid11"
             "Grid9  Grid9   Grid11   Grid11";
+    }
+}
+
+/* 1U 1L */
+@keyframes grid2 {
+    0% {
+        grid-template-columns: 1fr 0fr 1fr 0fr;
+        grid-template-rows: 1fr 0fr 1fr 0fr;
+        gap: 10px 10px;
+        grid-auto-flow: row;
+        grid-template-areas:
+            "Grid1  Grid1   Grid3   Grid3"
+            "Grid1  Grid1   Grid3   Grid3"
+            "Grid9  Grid9   Grid11   Grid11"
+            "Grid9  Grid9   Grid11   Grid11";
+    }
+
+    /* 70% { */
+    /*                      1   2     3   4   */
+    /* grid-template-columns: 1fr 0.5fr 1fr 0.5fr;
+        grid-template-rows: 1fr 0.fr 1fr 0.5fr;
+        gap: 10px 10px;
+        grid-auto-flow: row;
+        grid-template-areas:
+            "Grid1  Grid2   Grid3   Grid4"
+            "Grid5  Grid6   Grid7   Grid8"
+            "Grid9  Grid10  Grid11  Grid12"
+            "Grid13 Grid14  Grid15  Grid16";
+    } */
+    100% {
+        /*                      1   2   3   4 */
+        grid-template-columns: 1fr 0fr 0fr 1fr;
+        grid-template-rows: 1fr 0fr 1fr 0fr;
+        gap: 10px 10px;
+        grid-auto-flow: row;
+        grid-template-areas:
+            "Grid1  Grid1   Grid1   Grid1"
+            "Grid1  Grid1   Grid1   Grid1"
+            "Grid9  Grid9   Grid9   Grid9"
+            "Grid9  Grid9   Grid9   Grid9";
+    }
+}
+
+/* 1U */
+@keyframes grid1 {
+    0% {
+        grid-template-columns: 1fr 0fr 0fr 1fr;
+        grid-template-rows: 1fr 0fr 1fr 0fr;
+        gap: 10px 10px;
+        grid-auto-flow: row;
+        grid-template-areas:
+            "Grid1  Grid1   Grid1   Grid1"
+            "Grid1  Grid1   Grid1   Grid1"
+            "Grid9  Grid9   Grid9   Grid9"
+            "Grid9  Grid9   Grid9   Grid9";
+    }
+
+    /* 70% { */
+    /*                      1   2     3   4   */
+    /* grid-template-columns: 1fr 0.5fr 1fr 0.5fr;
+        grid-template-rows: 1fr 0.fr 1fr 0.5fr;
+        gap: 10px 10px;
+        grid-auto-flow: row;
+        grid-template-areas:
+            "Grid1  Grid2   Grid3   Grid4"
+            "Grid5  Grid6   Grid7   Grid8"
+            "Grid9  Grid10  Grid11  Grid12"
+            "Grid13 Grid14  Grid15  Grid16";
+    } */
+    100% {
+        /*                      1   2   3   4 */
+        grid-template-columns: 1fr 0fr 0fr 1fr;
+        grid-template-rows: 1fr 0fr 1fr 0fr;
+        gap: 10px 10px;
+        grid-auto-flow: row;
+        grid-template-areas:
+            "Grid1  Grid1   Grid1   Grid1"
+            "Grid1  Grid1   Grid1   Grid1"
+            "Grid1  Grid1   Grid1   Grid1"
+            "Grid1  Grid1   Grid1   Grid1";
+    }
+}
+
+@keyframes compressGrid {
+    0% {
+        /*                      1   2   3   4 */
+        grid-template-columns: 1fr 0fr 1fr 0fr;
+        grid-template-rows: 1fr 0fr 1fr 0fr;
+        gap: 10px 10px;
+        grid-auto-flow: row;
+        grid-template-areas:
+            "Grid1  Grid1   Grid3   Grid3"
+            "Grid1  Grid1   Grid3   Grid3"
+            "Grid9  Grid9   Grid11   Grid11"
+            "Grid9  Grid9   Grid11   Grid11";
+        /* use clip path when you put content in the square */
+        /* clip-path: polygon(0 0, 105% 0, 105% 100%, 0 100%); */
+    }
+
+    50% {
+        /*                      1   2     3   4   */
+        grid-template-columns: 1fr 0.5fr 1fr 0.5fr;
+        grid-template-rows: 1fr 0.5fr 1fr 0.5fr;
+        gap: 10px 10px;
+        grid-auto-flow: row;
+        grid-template-areas:
+            "Grid1  Grid2   Grid3   Grid4"
+            "Grid5  Grid6   Grid7   Grid8"
+            "Grid9  Grid10  Grid11  Grid12"
+            "Grid13 Grid14  Grid15  Grid16";
+    }
+
+    100% {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        gap: 10px 10px;
+        grid-auto-flow: row;
+        grid-template-areas:
+            "Grid1  Grid2   Grid3   Grid4"
+            "Grid5  Grid6   Grid7   Grid8"
+            "Grid9  Grid10  Grid11  Grid12"
+            "Grid13 Grid14  Grid15  Grid16";
     }
 }
 
