@@ -9,8 +9,8 @@ const { ipcRenderer } = require('electron');
 
 console.log(document.getElementById('div').className)
 
-if(getOS() === "macos"){
-    console.log("mac here")
+if (getOS() === "macos") {
+  console.log("mac here")
 }
 
 // added this to handle the DOM manipulation in the renderer process
@@ -23,8 +23,8 @@ if(getOS() === "macos"){
 document.addEventListener("keydown", logKey);
 
 function logKey(e) {
-console.log(e.code)
-toggle()
+  console.log(e.code)
+  toggle()
   /*   log.textContent += ` ${e.code}`; */
 }
 
@@ -37,24 +37,24 @@ toggle()
 // });
 
 function getOS() {
-    let userAgent = window.navigator.userAgent.toLowerCase(),
+  let userAgent = window.navigator.userAgent.toLowerCase(),
     macosPlatforms = /(macintosh|macintel|macppc|mac68k|macos)/i,
     windowsPlatforms = /(win32|win64|windows|wince)/i,
     iosPlatforms = /(iphone|ipad|ipod)/i,
     os = null;
 
-    if (macosPlatforms.test(userAgent)) {
+  if (macosPlatforms.test(userAgent)) {
     os = "macos";
-    } else if (iosPlatforms.test(userAgent)) {
+  } else if (iosPlatforms.test(userAgent)) {
     os = "ios";
-    } else if (windowsPlatforms.test(userAgent)) {
+  } else if (windowsPlatforms.test(userAgent)) {
     os = "windows";
-    } else if (/android/.test(userAgent)) {
+  } else if (/android/.test(userAgent)) {
     os = "android";
-    } else if (!os && /linux/.test(userAgent)) {
+  } else if (!os && /linux/.test(userAgent)) {
     os = "linux";
-    }
+  }
 
-    return os;
+  return os;
 }
 
